@@ -1,0 +1,18 @@
+.article-outer-ind{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+
+}
+
+.article-index{
+  height: 400px;
+  width: 80%;
+  flex-direction: row;
+}
+
+.index-image{
+  width: 80%;
+  height: 290px;
+}
