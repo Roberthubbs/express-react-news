@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
 
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(this.props.history.push("/articles"));
+        this.props.processForm(user).then(this.props.history.push("/testing"));
 
     }
     handleGuestSubmit(e) {
@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
 
     decideText() {
         if (this.props.formType === 'Login') {
-            return "New to fishables? "
+            return "New to Newsy? "
         } else {
             return "Returning User? "
         }
@@ -100,8 +100,8 @@ class SessionForm extends React.Component {
                                 <br />
 
                                 <input className="session-form-submit" type="submit" value={this.props.formType} />
-                                <h2 className="link-change">{this.decideText()}{this.props.navLink}</h2>
                                 <button className="session-form-submit" onClick={this.handleGuestSubmit} >Continue As Guest</button>
+                                <h2 className="link-change">{this.decideText()}{this.props.navLink}</h2>
                             </div>
                         </form>
 
@@ -140,8 +140,8 @@ class SessionForm extends React.Component {
                                 <br />
 
                                 <input className="session-form-submit" type="submit" value={this.props.formType} />
-                                <h2 className="link-change">{this.decideText()}{this.props.navLink}</h2>
                                 <button className="session-form-submit" onClick={this.handleGuestSubmit} >Continue As Guest</button>
+                                <h2 className="link-change">{this.decideText()}{this.props.navLink}</h2>
 
                             </div>
                         </form>

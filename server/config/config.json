@@ -2,25 +2,27 @@
   "development": {
     "username": "roberthubert",
     "password": null,
-    "database": "news-dev",
+    "database": "news_dev",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "seederStorage": "json",
+    "seederStoragePath": "sequelizeData.json",
+    "seederStorageTableName": "sequelize_data"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "news-test",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
+   
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "news-production",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
+    
   }
 }

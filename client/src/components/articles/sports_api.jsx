@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Article from './article_item';
-class Articles extends React.Component {
-    constructor(props){
+// const proxy = "https://cors-anywhere.herokuapp.com/"
+export default class SportsArticles extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             error: null,
@@ -10,11 +11,11 @@ class Articles extends React.Component {
         };
     }
 
-    componentDidMount(){
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=5d8f7e7fb04d49f8b5afc10db6e05367")
+    componentDidMount() {
+        fetch("https://gnews.io/api/v3/topics/sports?token=2c97995ff57174bcafee97440d49f241")
             .then(res => res.json())
             .then(
-                
+
                 (result) => {
                     this.setState({
                         isLoaded: true,
@@ -29,12 +30,13 @@ class Articles extends React.Component {
                     });
                 }
             )
+            .catch(() => console.log("Cant access, blocked by gnews"))
     }
     render() {
         const { error, isLoaded, items } = this.state;
-        if (error){
+        if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded){
+        } else if (!isLoaded) {
             return <div>Loading...</div>
         } else {
             return (
@@ -42,12 +44,10 @@ class Articles extends React.Component {
                     <div className="article-outer-ind">
                         {items.map(item => (
                             <Article key={item.title}
-                                urlToImage={item.urlToImage}
-                                link={item.url}
+                                urlToImage={item.image}
+                                link={item.source.url}
                                 title={item.title}
-                                author={item.author}
                                 description={item.description}
-                                content={item.content}
                             />
                         ))}
                     </div>
@@ -57,4 +57,4 @@ class Articles extends React.Component {
     }
 }
 
-export default Articles
+

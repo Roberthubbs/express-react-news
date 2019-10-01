@@ -1,7 +1,7 @@
 import React from 'react'
-import Article from './article_item';
-class Articles extends React.Component {
-    constructor(props){
+
+class Article extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             error: null,
@@ -10,11 +10,11 @@ class Articles extends React.Component {
         };
     }
 
-    componentDidMount(){
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=5d8f7e7fb04d49f8b5afc10db6e05367")
+    componentDidMount() {
+        fetch("https://newsapi.org/v2/sources=abc-news?apiKey=5d8f7e7fb04d49f8b5afc10db6e05367")
             .then(res => res.json())
             .then(
-                
+
                 (result) => {
                     this.setState({
                         isLoaded: true,
@@ -32,9 +32,9 @@ class Articles extends React.Component {
     }
     render() {
         const { error, isLoaded, items } = this.state;
-        if (error){
+        if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded){
+        } else if (!isLoaded) {
             return <div>Loading...</div>
         } else {
             return (
@@ -57,4 +57,4 @@ class Articles extends React.Component {
     }
 }
 
-export default Articles
+export default Article;

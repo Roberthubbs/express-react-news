@@ -1,6 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+  
   const User = sequelize.define('User', {
+    
     username: {
       type: DataTypes.STRING,
       unique: true,
@@ -11,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false 
     }
   }, {});
-  User.associate = function(models) {
-    User.hasMany(models.AuthToken)
+  User.associate = function ({ AuthToken }) {
+    User.hasMany(AuthToken);
   };
 
   User.authenticate = async function(username, password) {
@@ -38,5 +40,6 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.logout = async function (token) {
     sequelize.models.AuthToken.destroy({ where: { token } });
   };
+  
   return User;
 };

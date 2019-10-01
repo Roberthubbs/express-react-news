@@ -4,9 +4,13 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
+    
+    // debugger;
+    // debugger;
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return merge({}, state, { [action.currentUser.id]: action.currentUser });
+            // debugger;
+            return merge({}, state, { [action.currentUser.data.user.id]: action.currentUser.data.user });
         default:
             return state;
     }

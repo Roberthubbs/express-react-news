@@ -1,7 +1,9 @@
 const { User, AuthToken } = require('../models');
 
 module.exports = async function(req, res, next ){
-    const tolen = req.cookies.auth_token || req.headers.authorization;
+    // console.log(req, res)
+    console.log(req.body)
+    const token = req.cookies.auth_token || req.headers.authorization;
 
     if (token) {
         const authToken = await AuthToken.find(

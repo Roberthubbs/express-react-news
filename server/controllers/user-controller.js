@@ -4,25 +4,32 @@ const bcrypt = require('bcrypt');
 const { User } = require("../models");
 
 router.post('/register', async (req, res) => {
-    const hash = bcrypt.hashSync(req.body.password, 10);
-
-    try{
+    
+    const { username, password } = req.body
+    
+    const hash = bcrypt.hashSync(password, 10);
+    if (username) try{
+        console.log("we have a username", username)
+        let newObj = {username: username, password: hash}
         let user = await User.create(
-            Object.assign(req.body, { password: hash })
+            newObj
         );
-
         let data = await user.authorize();
-
+        user.save();
+        // console.log(res.data)
         return res.json(data);
     } catch(err) {
+        console.log("this is err",err)
         return res.status(400).send(err);
     }
 });
 
 router.post('/login', async(req, res) => {
-    const { username, password } = req.body;
-
+    
+    const username = req.body.username;
+    const password = req.body.password;
     if (!username || !password ){
+        
         return res.status(400).send(
             'Missing username or password dillweed'
         );
@@ -38,16 +45,28 @@ router.post('/login', async(req, res) => {
 });
 
 router.delete('/logout', async(req, res) => {
-    const { user, cookies: {auth_token: authToken }} = req;
+    
+    
+    
+    const { user } = req.body
+    console.log("USER",user,"/n========================")
+    const authToken = req.body.user.password
+    console.log("AuthToken", authToken)
 
-
-    if ( user && authToken){
-        await req.user.logout(authToken);
+    // we only want to attempt a logout if the user is
+    // present in the req object, meaning it already
+    // passed the authentication middleware. There is no reason
+    // the authToken should be missing at this point, check anyway
+    if (user && authToken) {
+        await User.prototype.logout(authToken);
         return res.status(204).send()
     }
 
+    // if the user missing, the user is not logged in, hence we
+    // use status code 400 indicating a bad request was made
+    // and send back a message
     return res.status(400).send(
-        { errors: [{ message: 'not authenticated' }]}
+        { errors: [{ message: 'not authenticated' }] }
     );
 });
 

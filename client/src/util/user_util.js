@@ -1,7 +1,6 @@
-const $ = require('jquery')
-
+import axios from 'axios';
 export const login = user =>(
-    $.ajax({
+    axios({
         method: "POST",
         url: '/login',
         data: { user }
@@ -9,18 +8,35 @@ export const login = user =>(
 );
 
 
-export const signup = user => (
-    $.ajax({
+
+export const signup = (user) => (
+    // debugger;
+    
+    
+    axios({
         method: 'POST',
         url: '/register',
-        data: { user }
+        data: {
+            username: user.username,
+            password: user.password,
+            
+        }
+        
     })
 );
 
-export const logout = () => (    
-    $.ajax('/logout', {
+
+
+export const logout = (user) => (
+    // e.preventDefault();
+    
+    
+    axios({
+        url: '/logout',
         method: 'DELETE',
-        data: {}
+        data: { user }
+        
     })
-);
+    
+)
 

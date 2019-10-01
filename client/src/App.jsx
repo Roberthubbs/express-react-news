@@ -1,19 +1,58 @@
 import React from 'react';
 import './css/Article.css';
 import './css/splash_login.css';
+import './css/app.css';
+import { connect } from 'react-redux';
 import RegisterContainer from './components/sign-up-container';
+import SportsArticles from './components/articles/sports_api';
 import LoginContainer from './components/login-container';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import img from './images/newPaper.png';
+import BlankForTesting from './components/blank_for_testing';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Articles from './components/articles/articles_call';
-const App = () => (
-  <div>
-    <Switch>
-      <Route exact path="/" component={RegisterContainer} />
-      <Route exact path="/login" component={LoginContainer} />
-      <Route path="/articles" component={Articles} />
-    </Switch>
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import HelloContainer from './components/hello/hello_container';
+// const mapStateToProps = (state) => {
+//   if (state){
+//   return {
+//     cookies: state.entities.users.authToken.token
+//   };
+//   }
+// };
 
-  </div>
-)
+class App extends React.Component {
+  
+  render(){
+    return(
+    <div>
+      <HelloContainer />
+      <div className="newsy-header">
+        <div className="left-side-head">
+          <img src={img} alt="icon" />
+          
+        </div>
+        <div className="middle-head">
+          <h3 className="newsy-title">Newsy</h3>
+          <h5 className="newsy-subheader">Your News Your Way</h5>
+        </div>
+        <div className="right-head">
+          <FontAwesomeIcon icon={faCoffee} />
+        </div>
+        {/* <Link to="/sports">Sports</Link> */}
+      </div>
+      <Switch>
+        <Route exact path="/register" component={RegisterContainer} />
+        <Route exact path="/login" component={LoginContainer} />
+        <Route path="/articles" component={Articles} />
+        <Route exact path="/sports" component={SportsArticles} />
+        <Route exact path="/testing" component={BlankForTesting} />
+      </Switch>
 
+    </div>
+    )
+  }
+}
+
+// export default connect(mapStateToProps, null)(App);
 export default App;

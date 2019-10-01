@@ -1,0 +1,30 @@
+.newsy-header{
+    background-color: plum;
+    padding: 10px;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.newsy-title{
+    color: whitesmoke;
+    font-size: 40px;
+    margin: 0;
+}
+
+.newsy-subheader{
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+
+.middle-head{
+    text-align: center;
+}
+
+.right-head{
+    margin-right: 60px;
+}
+

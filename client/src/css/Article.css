@@ -6,13 +6,40 @@
 
 }
 
+.list-box{
+  margin-top: 50px;
+}
+.article-index-list{
+  max-width: 80%;
+  text-align: center;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 14px;
+  background-color: rgba(155,155,155,.5);
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* .article-description{
+  max-width: 80%;
+} */
 .article-index{
   height: 400px;
   width: 80%;
   flex-direction: row;
 }
 
+
+
 .index-image{
   width: 80%;
   height: 290px;
 }
+
+.article-image{
+  max-width: 80%;
+  max-height: 400px;
+}
+/* .article-content{
+  max-width: 80%;
+} */
