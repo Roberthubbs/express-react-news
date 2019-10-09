@@ -16,10 +16,12 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "jquery.cookie": "^1.4.1",
     "morgan": "^1.9.1",
+    "node-fetch": "^2.6.0",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
     "pg": "^7.12.1",
@@ -28,5 +30,6 @@
     "sequelize": "^5.18.0",
     "universal-cookie": "^4.0.2",
     "universal-cookie-express": "^4.0.1"
-  }
+  },
+  "proxy": "localhost:3000"
 }

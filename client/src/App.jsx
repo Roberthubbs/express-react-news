@@ -7,9 +7,10 @@ import RegisterContainer from './components/sign-up-container';
 import SportsArticles from './components/articles/sports_api';
 import LoginContainer from './components/login-container';
 import img from './images/newPaper.png';
+import { AuthRoute } from './util/route_util';
 import BlankForTesting from './components/blank_for_testing';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Articles from './components/articles/articles_call';
+import Articles from './components/articles/articles_all_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import HelloContainer from './components/hello/hello_container';
@@ -26,7 +27,7 @@ class App extends React.Component {
   render(){
     return(
     <div>
-      <HelloContainer />
+      
       <div className="newsy-header">
         <div className="left-side-head">
           <img src={img} alt="icon" />
@@ -37,14 +38,14 @@ class App extends React.Component {
           <h5 className="newsy-subheader">Your News Your Way</h5>
         </div>
         <div className="right-head">
-          <FontAwesomeIcon icon={faCoffee} />
+            <HelloContainer />
         </div>
         {/* <Link to="/sports">Sports</Link> */}
       </div>
       <Switch>
-        <Route exact path="/register" component={RegisterContainer} />
-        <Route exact path="/login" component={LoginContainer} />
-        <Route path="/articles" component={Articles} />
+        <AuthRoute exact path="/register" component={RegisterContainer} />
+        <AuthRoute exact path="/login" component={LoginContainer} />
+        <Route path="/all" component={Articles} />
         <Route exact path="/sports" component={SportsArticles} />
         <Route exact path="/testing" component={BlankForTesting} />
       </Switch>

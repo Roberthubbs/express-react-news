@@ -5,9 +5,10 @@ import Hello from './hello';
 import { logout } from '../../actions/session_actions';
 
 
-const mapStateToProps = ({session, entities: {users}}) => {
+const mapStateToProps = (state) => {
+    // debugger;
     return {
-        currentUser: users[session.id],
+        currentUser: state.entities.users[state.session.id],
         location: document.location
     };
 };

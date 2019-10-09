@@ -1,45 +1,49 @@
 // const cookies = new Cookies(req.headers.cookie);
 require('dotenv').config()
+const cors = require('cors')
+
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
+// app.use(cors({credentials: true}));
 const path = require('path')
 const cookieParser = require('cookie-parser');
 const customAuthMiddleWare = require('./server/middleware/custom-middleware');
 const usersController = require('./server/controllers/user-controller');
+const articlesController = require('./server/controllers/articles-controller');
 const viewsController = require('./server/controllers/views_controller');
 const https = require('https');
 const db = require('./server/models/index')
 
-// const apiResponse = () => https.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=5d8f7e7fb04d49f8b5afc10db6e05367", (res) => {
-//     let data = '';
-
-//     res.on('data', (chunk) => {
-//         data += chunk
-//     });
-
-//     res.on('end', () => {
-//         console.log(JSON.parse(data))
-//     });
-// }).on("error", (err) => {
-//     console.log(err.message)
-// });
-// console.log(cookies.get('auth_token'))
-
+app.use((req, res, next) => {
+    res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    })
+    next();
+});
 app.use(logger('dev'));
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.mode = 'no-cors'
+//     next();
+// });
+
 const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(cookieParser());
-app.use(customAuthMiddleWare);
+// app.use(customAuthMiddleWare);
 
 
-app.get('/', (req, res) => {
-    
-})
+
 app.use(usersController);
+
+app.use(articlesController);
+
 app.use(viewsController);
 
 

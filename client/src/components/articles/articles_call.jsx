@@ -6,48 +6,38 @@ class Articles extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            articles: []
         };
     }
 
-    componentDidMount(){
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=5d8f7e7fb04d49f8b5afc10db6e05367")
-            .then(res => res.json())
-            .then(
-                
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.articles
-                    })
-                },
-
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+    async componentDidMount(){
+        
+        await this.props.receiveAllArticles()
+        if (this.props.articles){
+            // debugger;
+            // console.log([this.props.articles])
+            this.setState({articles: [this.props.articles], isLoaded: true})
+        }
     }
     render() {
-        const { error, isLoaded, items } = this.state;
-        if (error){
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded){
+        let { error, isLoaded, articles } = this.state;
+        
+         if (!isLoaded){
             return <div>Loading...</div>
         } else {
             return (
                 <div>
                     <div className="article-outer-ind">
-                        {items.map(item => (
-                            <Article key={item.title}
-                                urlToImage={item.urlToImage}
-                                link={item.url}
-                                title={item.title}
-                                author={item.author}
-                                description={item.description}
-                                content={item.content}
+                        {articles.map(item => (
+                            
+                            <Article key={item.id}
+                                // urlToImage={item.urlToImage}
+                                // link={item.url}
+                                // title={item.title}
+                                // author={item.author ? item.author : "No Known Author"}
+                                // description={item.description}
+                                // content={item.content}
+                                article={item}
                             />
                         ))}
                     </div>

@@ -1,11 +1,23 @@
 import axios from 'axios';
-export const login = user =>(
-    axios({
+export const login = user => {
+    // debugger;
+    return axios({
         method: "POST",
         url: '/login',
-        data: { user }
+        data: { 
+            user
+        }
+    }).then((user) => {
+        console.log(user)
     })
-);
+    // .then((user) => {
+    //     let data = {
+    //         username: user.config.user.username,
+    //         password: user.config.user.password
+    //     }
+    //     return data
+    // })
+};
 
 
 

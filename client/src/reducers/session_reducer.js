@@ -15,9 +15,10 @@ const sessionReducer = (oldState = nullObj, action) => {
         
         case RECEIVE_CURRENT_USER:
             // debugger;
-            const { id } = action.currentUser.data.user;
+            const { id } = action.currentUser.data.user
             return merge({}, { id })
         case LOGOUT_CURRENT_USER:
+            localStorage.clear();
             return nullObj;
         default:
             return oldState;

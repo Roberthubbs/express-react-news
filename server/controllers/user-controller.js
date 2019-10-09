@@ -9,7 +9,7 @@ router.post('/register', async (req, res) => {
     
     const hash = bcrypt.hashSync(password, 10);
     if (username) try{
-        console.log("we have a username", username)
+        // console.log("we have a username", username)
         let newObj = {username: username, password: hash}
         let user = await User.create(
             newObj
@@ -25,23 +25,30 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async(req, res) => {
-    
-    const username = req.body.username;
-    const password = req.body.password;
-    if (!username || !password ){
-        
+    // console.log(req.body)
+    const username = req.body.user.username;
+    const password = req.body.user.password;
+    let ret;
+    if (!username || !password) {
         return res.status(400).send(
-            'Missing username or password dillweed'
+            'Request missing username or password param'
         );
     }
-    try {
-        let user = await User.authenticate(username, password);
 
-        user = await user.authorize();
-        return res.json(user);
-    } catch(err) {
-        return res.status(400).send('invalid username or password')
-    };
+    try {
+
+        
+        let user = await User.authenticate(username, password)
+        // console.log(res.json(user.body))
+        return res.json(user)
+        
+    } catch (err) {
+        return res.status(400).send('invalid username or password');
+    }
+
+    
+            
+    
 });
 
 router.delete('/logout', async(req, res) => {
@@ -49,22 +56,15 @@ router.delete('/logout', async(req, res) => {
     
     
     const { user } = req.body
-    console.log("USER",user,"/n========================")
+    
     const authToken = req.body.user.password
-    console.log("AuthToken", authToken)
+    
 
-    // we only want to attempt a logout if the user is
-    // present in the req object, meaning it already
-    // passed the authentication middleware. There is no reason
-    // the authToken should be missing at this point, check anyway
     if (user && authToken) {
         await User.prototype.logout(authToken);
         return res.status(204).send()
     }
 
-    // if the user missing, the user is not logged in, hence we
-    // use status code 400 indicating a bad request was made
-    // and send back a message
     return res.status(400).send(
         { errors: [{ message: 'not authenticated' }] }
     );

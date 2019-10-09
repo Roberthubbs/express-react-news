@@ -3,7 +3,12 @@
     /* object-fit: cover; */
     min-height: 800px;
 }
-
+/* .right-nav-bar{
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 0;
+    padding-bottom: 30px;
+} */
 .login-form    {
     height: 400px;
     /* justify-self: center; */
@@ -54,4 +59,17 @@
     margin-right: auto;
     width: 60%;
     height: 20px;
+}
+
+.logout-button-h{
+    width: 70px;
+    height: 30px;
+    border-radius: 2px;
+    background-color: white;
+    color: darksalmon;
+}
+.username-greeting{
+    color: white;
+    font-size: 14px;
+    font-weight: 300px;
 }

@@ -10,6 +10,7 @@ const usersReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             // debugger;
+            localStorage.setItem('currentUser', JSON.stringify(action.currentUser.data.user))
             return merge({}, state, { [action.currentUser.data.user.id]: action.currentUser.data.user });
         default:
             return state;

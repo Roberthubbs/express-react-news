@@ -29,8 +29,9 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
         const user = Object.assign({}, this.state);
+        // localStorage.setItem('currentUser', user)
+        // debugger;
         this.props.processForm(user).then(this.props.history.push("/testing"));
 
     }

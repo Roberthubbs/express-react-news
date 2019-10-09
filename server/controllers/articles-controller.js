@@ -1,29 +1,35 @@
+const express = require('express');
+const router = express.Router();
+const fetch = require('node-fetch');
+const https = require('https');
+const axios = require('axios');
+const { Article } = require("../models");
+const cors = require('cors')
 
 
-// const HTTP = new XMLHttpRequest();
-const Url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d8f7e7fb04d49f8b5afc10db6e05367";
-fetch(Url)
-    .then(data=>{return data.json()})
-    .then((res) => {
-        router.post('/articles', async (res, req) => {
-            res.forEach((article) => {
-                try {
-                    let newArticle = Article.create(
-                        Object.assign(req.body)
-                    )
-                    return res.json(newArticle)
-                } catch (e){
-                    return res.status(400).send(e)
-                }
-            })
-        })
-    })
+router.post('/all', async(req, res) => {
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    // router.use(cors({origin: true}))
+    // res.append('Access-Control-Allow-Origin', ['*']);
+    // res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('mode', 'no-cors');
+    // console.log(req)
+    // console.log(res)
+    let createNew = await Article.findRecent()
+    let articles = await Article.findAll()
+    // console.log(res)
+    
+    
+    res.send(articles)
+       res.end()
+    
+    
+    
+})
+
+
+module.exports = router;
     
     
 
-// HTTP.open("GET", url);
-// HTTP.send();
-
-// HTTP.onreadystatechange = (e) => {
-//     console.log(HTTP.responseText)
-// }
