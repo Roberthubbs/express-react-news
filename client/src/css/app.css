@@ -1,5 +1,7 @@
 .newsy-header{
-    background-color: plum;
+    background: rgba(0,116,217,1);
+  background: -webkit-linear-gradient(top, rgba(0,116,217,1) 0%, rgba(0,65,122,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,116,217,1) 0%, rgba(0,65,122,1) 100%);
     padding: 10px;
     /* text-align: center; */
     display: flex;

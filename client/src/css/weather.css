@@ -1,0 +1,10 @@
+.weather-widget{
+    background-color: rgba(0, 0, 255, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    width: 15%;
+    position: fixed;
+    margin-left: 5px;
+}

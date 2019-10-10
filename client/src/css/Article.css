@@ -5,12 +5,11 @@
   margin-left: auto;
 
 }
-
 .list-box{
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .article-index-list{
-  max-width: 80%;
+  max-width: 70%;
   text-align: center;
   display: inline-block;
   padding: 8px;
@@ -19,6 +18,7 @@
   text-align: center;
   margin-bottom: 10px;
   margin-top: 10px;
+  border-top: 20px solid blue;
 }
 /* .article-description{
   max-width: 80%;
@@ -27,13 +27,20 @@
   height: 400px;
   width: 80%;
   flex-direction: row;
+  margin-left: auto;
 }
 
 
-
+/* .list-box.a{
+  text-decoration: none;
+  position: absolute;
+  padding-top: 30px;
+} */
 .index-image{
+  padding-top: 30px;
   width: 80%;
   height: 290px;
+  border-radius: 10px;
 }
 
 .article-image{

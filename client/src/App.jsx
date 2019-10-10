@@ -2,6 +2,7 @@ import React from 'react';
 import './css/Article.css';
 import './css/splash_login.css';
 import './css/app.css';
+import './css/weather.css'
 import { connect } from 'react-redux';
 import RegisterContainer from './components/sign-up-container';
 import SportsArticles from './components/articles/sports_api';
@@ -14,6 +15,10 @@ import Articles from './components/articles/articles_all_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import HelloContainer from './components/hello/hello_container';
+import WeatherCurrent from './components/widgets/weather_current';
+// import NPRArticles from './components/articles/liberalArticles/npr';
+import ConservativeArticles from './components/articles/conservativeArticles/conservative_container'
+import LiberalArticles from './components/articles/liberalNews/liberal_container'
 // const mapStateToProps = (state) => {
 //   if (state){
 //   return {
@@ -34,8 +39,15 @@ class App extends React.Component {
           
         </div>
         <div className="middle-head">
-          <h3 className="newsy-title">Newsy</h3>
-          <h5 className="newsy-subheader">Your News Your Way</h5>
+            <div className="emblem">
+              <h3 className="newsy-title">Newsy</h3>
+              <h5 className="newsy-subheader">Your News, Your Way</h5>
+            </div>
+            <div className="middle-head-links">
+              <Link to="/liberal">Liberal</Link>
+              <Link to="/all">All News</Link>
+              <Link to="/conservative">Conservative</Link>
+            </div>
         </div>
         <div className="right-head">
             <HelloContainer />
@@ -48,6 +60,10 @@ class App extends React.Component {
         <Route path="/all" component={Articles} />
         <Route exact path="/sports" component={SportsArticles} />
         <Route exact path="/testing" component={BlankForTesting} />
+        <Route path="/weather" component={WeatherCurrent} />
+       
+        <Route path="/conservative" component={ConservativeArticles} />
+        <Route path="/liberal" component={LiberalArticles} />
       </Switch>
 
     </div>

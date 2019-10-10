@@ -12,3 +12,21 @@ export const receiveAll = async() => {
         
     })
 }
+export const receiveConservative = async() => {
+    // debugger;
+    return await axios.request('/conservative', {
+        data: "",
+       method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveLiberal = async() => {
+    // debugger;
+    return await axios.request('/liberal', {
+        data: "",
+       method: "post",
+        headers: allHeaders
+        
+    })
+}

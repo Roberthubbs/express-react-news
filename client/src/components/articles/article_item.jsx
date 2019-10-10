@@ -1,23 +1,34 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import { NONAME } from 'dns';
+
+let linkStyle = {
+    textDecoration: 'none',
+    fontSize: "30px",
+    color: "white",
+    fontWeight: "700px"
+}
 class Article extends React.Component {
     
 
-    
+    //[article-outer-ind, list-box, article-index-list, article-index, index-image, article-image]
+
     render() {
-        console.log(this.props.article)
+       
         const {title, urlToImage, url, author, description, content} = this.props.article
             return (
                 <div>
-                    <div className="article-outer-ind">
-                        
-                            <div>{title}
-                                {urlToImage}
-                                {url}
-                                {title}
-                                {author}
-                                {description}
-                                {content}
+                    <div className="list-box">
+                        <div className="article-index-list">
+                            <div>
+                                
+                                <img src={urlToImage} alt="" className="index-image"/>
+                               <p className="list-box"><a className="list-box" style={linkStyle}href={url}>To Article</a></p>
+                                <p className="list-box">{title}</p>
+                                <p className="list-box"> Author: {author}</p>
+                                <p className="list-box">{description}</p>
+                                <p className="list-box">{content}</p>
+                        </div>
                         </div>
 
                     </div>

@@ -16,3 +16,14 @@ export const fetchArticles = () => dispatch => (
 
     ))
 );
+
+export const fetchConservative = () => dispatch => (
+    ArticleUtil.receiveConservative().then((articles) => {
+        dispatch(receiveAllArticles(articles))
+    })
+)
+export const fetchLiberal = () => dispatch => (
+    ArticleUtil.receiveLiberal().then((articles) => {
+        dispatch(receiveAllArticles(articles))
+    })
+)

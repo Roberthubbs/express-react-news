@@ -11,7 +11,7 @@ const articlesReducer = (state = {}, action) => {
         case RECEIVE_ALL_ARTICLES:
             console.log("action from front end", action)
             
-            return merge({}, state, action.articles.data );
+            return merge({}, state, [action.articles.data] );
         default:
             return state;
     }
