@@ -8,3 +8,39 @@
     position: fixed;
     margin-left: 5px;
 }
+
+.selector{
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 50%;
+    top: 100%;
+}
+.selector > button{
+    background-color: blue;
+    width: 100%;
+    height: 60px;
+    margin-left: 0px;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.selector > button:focus{
+   outline: none;
+}
+
+.weather-buttons{
+    width: 100%;
+    background-color: blue;
+}
+.weather-buttons > button{
+   width: 100%;
+    height: 40px;
+    background-color: blue;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-bottom: 1px solid black;
+}
