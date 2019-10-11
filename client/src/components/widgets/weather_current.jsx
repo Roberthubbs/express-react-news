@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import WeatherForecast from './weather_forecast';
+
 let request = new XMLHttpRequest()
 export default class WeatherCurrent extends Component {
     constructor(props){
@@ -10,7 +12,9 @@ export default class WeatherCurrent extends Component {
             showMenu: false,
             menuText: "Choose Location",
             weatherLocation: "94110",
-            locationText: "San Francisco"
+            locationText: "San Francisco",
+            forecastChosen: false,
+            forecastText: "Show Forecast"
         }
         this.showMenu = this.showMenu.bind(this);
         this.chooseSF = this.chooseSF.bind(this);
@@ -75,6 +79,20 @@ export default class WeatherCurrent extends Component {
             });
         }
     }
+    showForecast(event) {
+        event.preventDefault();
+        if (!this.state.showMenu){
+            this.setState({
+                showForecast: true,
+                forecastText: "Close"
+            });
+        } else {
+            this.setState({
+                showForecast: false,
+                forecastText: "Close"
+            });
+        }
+    }
     chooseSF(event){
         event.preventDefault();
         this.setState({
@@ -124,31 +142,47 @@ export default class WeatherCurrent extends Component {
             )
         }
         let weather  = this.state.weather
-        
+        let component;
         weather = JSON.parse(weather)
-        return (
-            <div className="weather-widget">
-                
-                <p>Showing weather in: {this.state.locationText} </p>
-                <img src={weather["wx_icon"]}/>
-                <p>{weather["wx_desc"]}</p>
-                <p>Temperature: {weather["temp_f"]}</p>
-                <p>Feels Like: {weather["feelslike_f"]}</p>
-                <div className="selector">
-                    <button onClick={this.showMenu}>{this.state.menuText}</button>
-                    {
-                        this.state.showMenu ? (
-                            <div classNames="weather-buttons">
-                                <button onClick={this.chooseSF}>San Francisco</button>
-                                <button onClick={this.chooseNY}>New York</button>
-                                <button onClick={this.chooseDC}>Washington DC</button>
-                                <button onClick={this.chooseLA}>Los Angeles</button>
-                                <button onClick={this.chooseCH}>Chicago</button>
-                            </div>
-                        ) : null
-                    }
-                </div>
-            </div>
-        )
+        
+       
+        
+            if (!this.state.forecastChosen){
+                return(
+                    <div className="weather-widget">
+
+                        <p>Showing weather in: {this.state.locationText} </p>
+                        <img src={weather["wx_icon"]} />
+                        <p>{weather["wx_desc"]}</p>
+                        <p>Temperature: {weather["temp_f"]}</p>
+                        <p>Feels Like: {weather["feelslike_f"]}</p>
+                        <div className="selector">
+                            <button className="selector-button" onClick={this.showMenu}>{this.state.menuText}</button>
+                            {
+                                this.state.showMenu ? (
+                                    <div classNames="weather-buttons">
+                                        <button className="selector-button-mini" onClick={this.chooseSF}>San Francisco</button>
+                                        <button className="selector-button-mini" onClick={this.chooseNY}>New York</button>
+                                        <button className="selector-button-mini" onClick={this.chooseDC}>Washington DC</button>
+                                        <button className="selector-button-mini" onClick={this.chooseLA}>Los Angeles</button>
+                                        <button className="selector-button-mini" onClick={this.chooseCH}>Chicago</button>
+                                    </div>
+                                ) : null
+                            }
+                        </div>
+                    </div>
+                )
+                } else {
+                    return(
+                        // <WeatherForecast
+                        //     menuText={this.state.forecastText}
+                        //     weatherLocation={this.state.weatherLocation}
+                        //     locationText={this.state.locationText}
+                        // />
+                        "in progress"
+                    )
+            }
+        
+        
     }
 }

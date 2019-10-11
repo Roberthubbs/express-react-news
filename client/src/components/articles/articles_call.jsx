@@ -1,7 +1,7 @@
 import React from 'react'
 import Article from './article_item';
 import WeatherCurrent from '../widgets/weather_current';
-
+import Stocks from '../widgets/stocks'
 class Articles extends React.Component {
     constructor(props){
         super(props);
@@ -63,7 +63,7 @@ class Articles extends React.Component {
                     <div className="article-index">
                         {articles[0].map(item => (
                             
-                            <Article key={item.id}
+                            <Article key={item.title}
                                 // urlToImage={item.urlToImage}
                                 // link={item.url}
                                 // title={item.title}
@@ -73,6 +73,7 @@ class Articles extends React.Component {
                                 article={item}
                             />
                         ))}
+                    <Stocks />
                     </div>
                 </div>
             )

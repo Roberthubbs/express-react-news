@@ -5,7 +5,7 @@ const https = require('https');
 module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define('Article', {
     author: DataTypes.STRING,
-    title: DataTypes.STRING,
+    title: {type: DataTypes.STRING, unique: true},
     description: DataTypes.TEXT,
     url: DataTypes.STRING,
     urlToImage: DataTypes.STRING,
@@ -55,6 +55,15 @@ module.exports = (sequelize, DataTypes) => {
 
 
     return returnVal;
+  }
+  Article.sendConservative = async(arr) => {
+    // let val = []
+    arr.forEach((art) => {
+      val.push(Article.create(art))
+    }).then((res) => {
+      return res
+    })
+    
   }
  
   return Article;

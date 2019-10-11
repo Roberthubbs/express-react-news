@@ -48,6 +48,17 @@ router.post("/conservative", async(req, res) => {
     })
 })
 
+router.get(`/show/:title`, async(req, res) => {
+    // console.log("hitting")
+//    if (!req && !res){
+//        console.log("no request")
+//    }
+//    else res.send(req)
+    // console.log(req.params)
+    const article = await Article.findOne({where: {title: req.params.title}});
+    // console.log(article)
+    res.send(article)
+})
 router.post("/liberal", async(req, res) => {
     let globalRes = res
     // console.log("hitting", req);
@@ -55,14 +66,26 @@ router.post("/liberal", async(req, res) => {
     newsapi.v2.topHeadlines({
         sources: 'cnn,the-washington-post,the-new-york-times,cbs-news,nbc-news',
 
-    }).then((res) => {
+    }).then(async(res) => {
         // console.log(res);
         // articles = Article.findConservative(res.articles)
         // return articles
-        res.articles.forEach((article) => {
-            Article.create(article)
-        })
-        globalRes.send(res.articles)
+    //    let ids = [];
+        return Promise.all(res.articles.map(async (article) => {
+            article = await Article.create(article)
+            return article
+        }))
+        // res.articles.map(async(article) => {
+        //     article = Article.create(article)
+            
+        // })
+    }).then((res) => {
+        console.log(res)
+        globalRes.send(res)
+
+    })
+    .catch((err) => {
+        globalRes.send(err)
     })
 })
 

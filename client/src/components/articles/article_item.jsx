@@ -1,6 +1,6 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
-import { NONAME } from 'dns';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 let linkStyle = {
     textDecoration: 'none',
@@ -15,13 +15,14 @@ class Article extends React.Component {
 
     render() {
        
-        const {title, urlToImage, url, author, description, content} = this.props.article
+        const {title, urlToImage, url, author, description, content, id} = this.props.article
+        // console.log(id)
             return (
                 <div>
                     <div className="list-box">
                         <div className="article-index-list">
                             <div>
-                                
+                                {/* <Link className="article-link" to={`/show/${title}`}>To Discussion</Link> */}
                                 <img src={urlToImage} alt="" className="index-image"/>
                                <p className="list-box"><a className="list-box" style={linkStyle}href={url}>To Article</a></p>
                                 <p className="list-box">{title}</p>

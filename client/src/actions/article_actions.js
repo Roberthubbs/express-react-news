@@ -1,14 +1,22 @@
 import * as ArticleUtil from "../util/article_util";
-export const RECEIVE_ALL_ARTICLES = "RECEIVE_ALL_ARTICLES"
+export const RECEIVE_ALL_ARTICLES = "RECEIVE_ALL_ARTICLES";
+export const RECEIVE_ARTICLE = "RECEIVE_ARTICLE";
+
 
 export const receiveAllArticles = articles => ({
     type: RECEIVE_ALL_ARTICLES,
     articles
 })
-// export const receiveErrors = errors => ({
-//     type: RECEIVE_SESSION_ERRORS,
-//     errors
-// });
+
+export const receiveArticle = payload => ({
+    type: RECEIVE_ARTICLE,
+    payload
+})
+
+export const fetchArticle = title => dispatch => (
+    ArticleUtil.fetchArticle(title).then(article => dispatch(receiveArticle(article)))
+);
+
 
 export const fetchArticles = () => dispatch => (
     ArticleUtil.receiveAll().then((articles) => (

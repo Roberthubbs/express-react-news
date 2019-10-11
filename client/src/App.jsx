@@ -2,7 +2,8 @@ import React from 'react';
 import './css/Article.css';
 import './css/splash_login.css';
 import './css/app.css';
-import './css/weather.css'
+import './css/weather.css';
+import './css/stocks.css';
 import { connect } from 'react-redux';
 import RegisterContainer from './components/sign-up-container';
 import SportsArticles from './components/articles/sports_api';
@@ -19,6 +20,9 @@ import WeatherCurrent from './components/widgets/weather_current';
 // import NPRArticles from './components/articles/liberalArticles/npr';
 import ConservativeArticles from './components/articles/conservativeArticles/conservative_container'
 import LiberalArticles from './components/articles/liberalNews/liberal_container'
+import ArticleShow from './components/articles/article_show_container';
+import Stocks from './components/widgets/stocks';
+
 // const mapStateToProps = (state) => {
 //   if (state){
 //   return {
@@ -61,9 +65,10 @@ class App extends React.Component {
         <Route exact path="/sports" component={SportsArticles} />
         <Route exact path="/testing" component={BlankForTesting} />
         <Route path="/weather" component={WeatherCurrent} />
-       
+       <Route path="/show/:title" component={ArticleShow} />
         <Route path="/conservative" component={ConservativeArticles} />
         <Route path="/liberal" component={LiberalArticles} />
+        <Route path="/stocks" component={Stocks} />
       </Switch>
 
     </div>

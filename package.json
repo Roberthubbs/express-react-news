@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon server --watch server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon --inspect app.js"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,6 @@
     "sequelize": "^5.18.0",
     "universal-cookie": "^4.0.2",
     "universal-cookie-express": "^4.0.1"
-  },
-  "proxy": "localhost:3000"
+  }
+  
 }
