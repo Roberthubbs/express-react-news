@@ -65,7 +65,7 @@ class App extends React.Component {
         <Route exact path="/sports" component={SportsArticles} />
         <Route exact path="/testing" component={BlankForTesting} />
         <Route path="/weather" component={WeatherCurrent} />
-       <Route path="/show/:title" component={ArticleShow} />
+       <Route path="/show/:id" component={ArticleShow} />
         <Route path="/conservative" component={ConservativeArticles} />
         <Route path="/liberal" component={LiberalArticles} />
         <Route path="/stocks" component={Stocks} />

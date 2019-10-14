@@ -22,10 +22,10 @@ export const receiveConservative = async() => {
     })
 }
 
-export const fetchArticle = async(title) => {
+export const fetchArticle = async(id) => {
     // debugger;comn
-    console.log(title)
-    return await axios.request(`/show/${title}`, {
+    console.log(id)
+    return await axios.request(`/show/${id}`, {
         method: "GET",
         
         data: {

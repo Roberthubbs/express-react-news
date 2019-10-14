@@ -38,7 +38,7 @@ class ConservativeArticles extends React.Component {
                 <div>
                     <WeatherCurrent />
                     <div className="article-index">
-                        {articles[0].map(item => (
+                        {Object.values(articles).map(item => (
 
                             <Article key={item.id}
                                 // urlToImage={item.urlToImage}

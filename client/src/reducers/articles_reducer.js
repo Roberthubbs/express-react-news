@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_ALL_ARTICLES, RECEIVE_ARTICLE } from '../actions/article_actions';
+import { RECEIVE_ALL_ARTICLES, RECEIVE_ARTICLE, RECEIVE_ARTICLE_ERRORS } from '../actions/article_actions';
 
 const articlesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -9,13 +9,14 @@ const articlesReducer = (state = {}, action) => {
     // debugger;
     switch (action.type) {
         case RECEIVE_ALL_ARTICLES:
-            console.log("action from front end", action)
-            
-            return merge({}, state, [action.articles.data] );
+            // console.log("action from front end", action)
+            // debugger;
+            return merge({}, action.articles.data );
         case RECEIVE_ARTICLE:
             // debugger;
-            return merge({}, state, {[action.payload.data.id]: action.payload.data});
-
+            return merge({}, state, {[action.payload.data.article.id]: action.payload.data});
+        case RECEIVE_ARTICLE_ERRORS:
+            return merge({}, state, action.data.err)
         default:
             return state;
     }

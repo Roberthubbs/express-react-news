@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const mstp = (state) => {
     // debugger;
     return {
-        articles: state.entities.articles 
+        articles: Object.values(state.entities.articles)
     }
 }
 

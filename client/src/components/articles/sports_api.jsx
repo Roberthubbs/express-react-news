@@ -43,7 +43,7 @@ export default class SportsArticles extends Component {
                 <div>
                     <div className="article-outer-ind">
                         {items.map(item => (
-                            <Article key={item.title}
+                            <Article key={item.id}
                                 urlToImage={item.image}
                                 link={item.source.url}
                                 title={item.title}

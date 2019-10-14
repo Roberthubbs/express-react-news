@@ -5,18 +5,19 @@ import { fetchArticle } from '../../actions/article_actions';
 
 const mstp = (state, ownProps) => {
     // debugger;
-    console.log(state.entities.articles)
+    // console.log(state.entities.articles)
     // console.log(ownProps.match.params)
-    const article = state.entities.articles
+    // const article = state.entities.articles
     // console.log(article)
     return {
-        articleTitle: ownProps.match.params.title,
-        article: article
+        articleId: ownProps.match.params.id,
+        article: state.entities.articles[ownProps.match.params.id]
     }
+    
 };
 
 const mdtp = dispatch => ({
-    fetchArticle: articleTitle => dispatch(fetchArticle(articleTitle))
+    fetchArticle: articleId => dispatch(fetchArticle(articleId))
 })
 
 export default connect(mstp, mdtp)(ArticleShow);

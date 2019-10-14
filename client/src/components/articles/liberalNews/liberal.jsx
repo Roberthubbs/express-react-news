@@ -38,15 +38,10 @@ class LiberalArticles extends React.Component {
                 <div>
                     <WeatherCurrent />
                     <div className="article-index">
-                        {articles[0].map(item => (
+                        {Object.values(articles).map(item => (
 
                             <Article key={item.id}
-                                // urlToImage={item.urlToImage}
-                                // link={item.url}
-                                // title={item.title}
-                                // author={item.author ? item.author : "No Known Author"}
-                                // description={item.description}
-                                // content={item.content}
+                                
                                 article={item}
                             />
                         ))}

@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import NewComment from '../comments/new_comments_container';
+import AllComments from '../comments/all_comments_container';
 
 export default class ArticleShow extends Component {
     constructor(props){
         super(props)
         this.state = {
-            articleTitle: this.props.articleTitle,
-            article: ""
+            articleID: this.props.articleId,
+            
         }
     }
 
     componentDidMount(){
         // debugger;
         this._isMounted = true
-        this.props.fetchArticle(this.state.articleTitle)
+        // debugger;
+        this.props.fetchArticle(this.props.match.params.articleId)
     }
     componentWillUnmount(){
         this._isMounted = false
@@ -23,10 +26,12 @@ export default class ArticleShow extends Component {
     render() {
         const article = this.props.article ? this.props.article : []
         const {id, content, author} = article
-        console.log(content)
+        // console.log(content)
         return (
             <div>
                 <p>{content} {author}</p>
+                <NewComment />
+                <AllComments />
             </div>
         )
     }
