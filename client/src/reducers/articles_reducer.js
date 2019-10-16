@@ -14,7 +14,7 @@ const articlesReducer = (state = {}, action) => {
             return merge({}, action.articles.data );
         case RECEIVE_ARTICLE:
             // debugger;
-            return merge({}, state, {[action.payload.data.article.id]: action.payload.data});
+            return merge({}, state, {[action.payload.data.id]: action.payload.data});
         case RECEIVE_ARTICLE_ERRORS:
             return merge({}, state, action.data.err)
         default:

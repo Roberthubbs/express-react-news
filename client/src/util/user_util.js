@@ -1,14 +1,12 @@
 import axios from 'axios';
-export const login = user => {
+export const login = async(user) => {
     // debugger;
-    return axios({
+    return await axios({
         method: "POST",
         url: '/login',
         data: { 
             user
         }
-    }).then((user) => {
-        console.log(user)
     })
     // .then((user) => {
     //     let data = {

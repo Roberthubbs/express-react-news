@@ -13,6 +13,7 @@ const customAuthMiddleWare = require('./server/middleware/custom-middleware');
 const usersController = require('./server/controllers/user-controller');
 const articlesController = require('./server/controllers/articles-controller');
 const viewsController = require('./server/controllers/views_controller');
+const commentsController = require('./server/controllers/comments-controller');
 const https = require('https');
 const db = require('./server/models/index')
 
@@ -46,6 +47,7 @@ app.use(articlesController);
 
 app.use(viewsController);
 
+app.use(commentsController);
 
 // import Cookies from 'universal-cookie';
 

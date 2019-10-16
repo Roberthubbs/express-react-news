@@ -4,6 +4,7 @@ import './css/splash_login.css';
 import './css/app.css';
 import './css/weather.css';
 import './css/stocks.css';
+import './css/comment.css';
 import { connect } from 'react-redux';
 import RegisterContainer from './components/sign-up-container';
 import SportsArticles from './components/articles/sports_api';

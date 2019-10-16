@@ -1,18 +1,35 @@
 import React, { Component } from 'react'
 
 export default class AllComments extends Component {
-    componentDidMount(){
-        this.props.fetchComments()
+    constructor(props){
+        super(props)
+        this.state = {
+            comments: null
+        }
+    }
+    async componentDidMount(){
+        this.props.fetchAllComments(this.props.articleId).then((res) => {
+            console.log(res)
+        })
     }
     render() {
-        let comments = this.props.comments ? this.props.comments : []
+        const comments = this.props.comments
+        // debugger;
+        console.log(comments)
+        if (comments === null){
+            return(null)
+        }
+        console.log(comments)
         return (
-            <div>
-                {comments.map((comment) => {
+            <div className="content-container">
+                <p className="article-comments">This article has {comments.length} comments</p>
+                {comments.map((comment) => (
                     <div className="comment">
-                        {comment.body}
+                        <p className="comment-username">Comment by: {comment.username}</p>
+                        <p>{comment.content}</p>
                     </div>
-                })}
+                ))}
+                {/* <p>comments here</p> */}
             </div>
         )
     }

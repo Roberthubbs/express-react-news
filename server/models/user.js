@@ -13,24 +13,27 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false 
+    },
+    politicalAffiliation: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {});
-  User.associate = function ({ AuthToken, Comments }) {
+  User.associate = function ({ AuthToken, Comment }) {
     User.hasMany(AuthToken);
-    User.hasMany(Comments)
+    User.hasMany(Comment)
   };
 
   User.authenticate = async function(name, password) {
-    // console.log("all Users", await db.sequelize.query('SELECT * FROM "Users"'), { type: sequelize.QueryTypes.SELECT });
-    // console.log("username from here", name)
-   User.findOne({where: {username: name}}).then((user) => {
-      
-      if (bcrypt.compareSync(password, user.password)){
-        // console.log(password)
-        return user.authorize();
-      };
-      throw new Error('invalid password or username');
-    })
+    
+   let user = await User.findOne({where: {username: name}})
+    
+   if (bcrypt.compareSync(password, user.password)){
+      // console.log(password)
+      return user.authorize();
+    };
+    throw new Error('invalid password or username');
+    
     
   }
 

@@ -23,8 +23,7 @@ export const receiveConservative = async() => {
 }
 
 export const fetchArticle = async(id) => {
-    // debugger;comn
-    console.log(id)
+    // debugger;
     return await axios.request(`/show/${id}`, {
         method: "GET",
         

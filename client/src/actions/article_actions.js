@@ -20,9 +20,7 @@ export const receiveErrors = err => ({
 })
 export const fetchArticle = id => dispatch => (
     ArticleUtil.fetchArticle(id).then(article => 
-        dispatch(receiveArticle(article))),
-         err => (
-        dispatch(receiveErrors(err))
+        dispatch(receiveArticle(article))
     )
 );
 
@@ -31,22 +29,16 @@ export const fetchArticles = () => dispatch => (
     ArticleUtil.receiveAll().then((articles) => (
         dispatch(receiveAllArticles(articles)) 
 
-    )), err => (
-        dispatch(receiveErrors(err))
-    )
+    ))
 );
 
 export const fetchConservative = () => dispatch => (
     ArticleUtil.receiveConservative().then((articles) => {
         dispatch(receiveAllArticles(articles))
-    }), err => (
-        dispatch(receiveErrors(err))
-    )
+    })
 )
 export const fetchLiberal = () => dispatch => (
     ArticleUtil.receiveLiberal().then((articles) => {
         dispatch(receiveAllArticles(articles))
-    }), err => (
-        dispatch(receiveErrors(err))
-    )
+    })
 )

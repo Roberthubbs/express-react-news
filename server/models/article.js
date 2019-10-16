@@ -5,10 +5,10 @@ const https = require('https');
 module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define('Article', {
     author: DataTypes.STRING,
-    title: {type: DataTypes.STRING, unique: true},
+    title: DataTypes.TEXT,
     description: DataTypes.TEXT,
-    url: DataTypes.STRING,
-    urlToImage: DataTypes.STRING,
+    url: DataTypes.TEXT,
+    urlToImage: DataTypes.TEXT,
     content: DataTypes.TEXT
   }, {});
   Article.associate = function({Comment}) {

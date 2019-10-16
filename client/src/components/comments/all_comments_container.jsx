@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
 import AllComments from './all_comments';
-
-export const mstp = (state) => ({
-    comments: state.entities.comments
-});
+import { fetchAllComments } from '../../actions/comment_actions'
+export const mstp = (state) => {
+    // debugger;
+    return {
+        comments: Object.values(state.entities.comments)
+    }
+};
 
 export const mdtp = dispatch => ({
-    fetchAllComments: () => dispatch(fetchAllComments())
+    fetchAllComments: (articleId) => dispatch(fetchAllComments(articleId))
 })
 
 export default connect(mstp, mdtp)(AllComments)

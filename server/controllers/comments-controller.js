@@ -1,20 +1,37 @@
-const { Comment } = require("../models")
 const express = require('express');
 const router = express.Router();
+const { Comment } = require("../models")
+const { User } = require('../models')
 
-
-router.post("/new", async(req, res) => {
-    let { authorId, articleId, content} = req.body
-    if (!user_id || !content){
+router.post("/show/:articleId/new", async(req, res) => {
+    // debugger;
+    let { userId, articleId, body} = req.body.comment
+    if (!userId || !body){
         return res.status(400).send(
             "Must login and comment must include body"
         )
     }
-    if (content) try {
-        let comment = await Comment.create({author_id: authorId, post_id: articleId, content: body})
+    if (body) try {
+        let comment = await Comment.create({author_id: userId, post_id: articleId, content: body})
         comment.save()
-        res.json(comment)
+        res.send(comment)
     } catch(err) {
         return res.status(400).send(err)
     }
+});
+
+router.get("/show/:articleId/comments", async(req, res) => {
+    
+    let articleId = req.params.articleId;
+    let comments = await Comment.findAll({where: {post_id: articleId}, raw: true});
+    let author_id;
+    Promise.all(comments.map(async(comment) => {
+        return await Comment.attachUserName(comment)
+    })).then((result) => {
+        res.send(result)
+    })
+    // console.log(comments)
+    // return res.send(comments)
 })
+
+module.exports = router;

@@ -9,9 +9,10 @@ const mstp = (state, ownProps) => {
     // console.log(ownProps.match.params)
     // const article = state.entities.articles
     // console.log(article)
+    // debugger;
     return {
         articleId: ownProps.match.params.id,
-        article: state.entities.articles[ownProps.match.params.id]
+        // article: state.entities.articles[ownProps.match.params.id]
     }
     
 };

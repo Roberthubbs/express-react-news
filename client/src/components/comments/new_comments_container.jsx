@@ -2,9 +2,16 @@ import { connect } from 'react-redux';
 import { createNewComment } from '../../actions/comment_actions';
 import NewComment from './new_comment';
 export const mstp = (state) => {
+    let userId;
+    // debugger;
+    if (state.session) {
+        userId = state.session.id
+    } else {
+        userId = null;
+    }
     return {
-        userId: state.entities.session.id,
-        articleId: state.entities.articles.id
+        userId: userId,
+        
     }
 }
 

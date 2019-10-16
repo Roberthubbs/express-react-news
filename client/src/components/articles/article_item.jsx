@@ -22,8 +22,8 @@ class Article extends React.Component {
                     <div className="list-box">
                         <div className="article-index-list">
                             <div>
-                                <Link className="article-link" to={`/show/${id}`}>To Discussion</Link>
                                 <img src={urlToImage} alt="" className="index-image"/>
+                                <p className="list-box"><Link className="article-link" className={linkStyle} to={`/show/${id}`}>To Discussion</Link></p>
                                <p className="list-box"><a className="list-box" style={linkStyle}href={url}>To Article</a></p>
                                 <p className="list-box">{title}</p>
                                 <p className="list-box"> Author: {author}</p>

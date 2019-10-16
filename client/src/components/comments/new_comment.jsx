@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
-export default class NewComment extends Component {
+import {withRouter} from 'react-router-dom';
+class NewComment extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -18,20 +18,25 @@ export default class NewComment extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.createNewComment(this.state).then(this.props.history.push("/"))
+        // debugger;
+        this.props.createNewComment(this.state).then(this.props.history.push(`/all`))
     }
     render() {
 
         return (
-            <div>
-                <form action="">Create New Comment
+            <div className="comment-form">
+                <p className="comment-title">Join The Conversation</p>
+                <form action="">
                 <input type="text" 
+                className="comment-input"
                 value={this.state.description}
                 onChange={this.updateField("body")}/>
-                <input type="button" value="Post Comment" onClick={this.handleSubmit}/>
+                <input className="comment-button"type="button" value="Post Comment" onClick={this.handleSubmit}/>
                 </form>
 
             </div>
         )
     }
 }
+
+export default withRouter(NewComment)
