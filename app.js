@@ -9,11 +9,13 @@ const app = express();
 // app.use(cors({credentials: true}));
 const path = require('path')
 const cookieParser = require('cookie-parser');
+
 const customAuthMiddleWare = require('./server/middleware/custom-middleware');
 const usersController = require('./server/controllers/user-controller');
 const articlesController = require('./server/controllers/articles-controller');
 const viewsController = require('./server/controllers/views_controller');
 const commentsController = require('./server/controllers/comments-controller');
+const likesController = require('./server/controllers/likes-contoller.js');
 const https = require('https');
 const db = require('./server/models/index')
 
@@ -48,6 +50,7 @@ app.use(articlesController);
 app.use(viewsController);
 
 app.use(commentsController);
+app.use(likesController);
 
 // import Cookies from 'universal-cookie';
 

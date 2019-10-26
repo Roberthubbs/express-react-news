@@ -9,6 +9,7 @@ import { resetErrors } from '../actions/session_actions';
 // import { resetErrors } from '../../actions/session_actions';
 
 const mapStateToProps = ({ errors }) => {
+   
     return {
         errors: errors.session,
         formType: 'Signup',

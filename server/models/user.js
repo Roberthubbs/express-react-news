@@ -19,9 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {});
-  User.associate = function ({ AuthToken, Comment }) {
+  User.associate = function ({ AuthToken, Comment, Like }) {
     User.hasMany(AuthToken);
-    User.hasMany(Comment)
+    User.hasMany(Comment);
+    User.hasMany(Like)
   };
 
   User.authenticate = async function(name, password) {

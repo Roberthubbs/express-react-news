@@ -2,15 +2,17 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const { User } = require("../models");
-
+const { Article } = require("../models")
+const { Comment } = require("../models")
 router.post('/register', async (req, res) => {
     
-    const { username, password } = req.body
     
+    const { username, password, politicalAffiliation } = req.body
+    // console.log(req)
     const hash = bcrypt.hashSync(password, 10);
-    if (username) try{
+    if (username && password) try{
         // console.log("we have a username", username)
-        let newObj = {username: username, password: hash}
+        let newObj = { username: username, password: hash, politicalAffiliation: politicalAffiliation}
         let user = await User.create(
             newObj
         );
@@ -19,7 +21,7 @@ router.post('/register', async (req, res) => {
         // console.log(res.data)
         return res.json(data);
     } catch(err) {
-        console.log("this is err",err)
+        // console.log("this is err",err)
         return res.status(400).send(err);
     }
 });
@@ -30,9 +32,9 @@ router.post('/login', async(req, res) => {
     const password = req.body.user.password;
     
     let ret;
-    if (!username || !password) {
+    if (!username) {
         return res.status(400).send(
-            'Request missing username or password param'
+            ['Request missing username or password param']
         );
     }
 
@@ -44,7 +46,7 @@ router.post('/login', async(req, res) => {
         return res.json(user)
         
     } catch (err) {
-        return res.status(400).send('invalid username or password');
+        return res.status(400).send(['invalid username or password']);
     }
 
     
@@ -78,6 +80,30 @@ router.get('/me', (req, res) => {
     res.status(404).send(
         {errors: [{ message: 'missing auth token' }]}
     );
+});
+
+router.get('/user/:id', async(req, res) => {
+
+    // console.log(req)
+    let id = req.params.id;
+    // let articles = [];
+    if (!id){
+        return res.status(400).send("Log in to view user information")
+    }
+    
+    let comments = await Comment.findAll({where: {author_id: id}, raw: true});
+    return Promise.all(comments.map(async(comment) => {
+        article = await Article.findOne({where: {id: comment.post_id}, raw: true});
+        comment.title = article.title;
+        comment.url = article.url;
+        // comment.articleId = article.id
+        return comment
+    })).then((result) => {
+        res.send(result)
+    });
+    // console.log(comments);
+    // // console.log(articles)
+    // res.send(comments)
 })
 
 module.exports = router;

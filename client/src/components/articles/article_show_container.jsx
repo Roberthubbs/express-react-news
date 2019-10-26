@@ -4,12 +4,7 @@ import { fetchArticle } from '../../actions/article_actions';
 
 
 const mstp = (state, ownProps) => {
-    // debugger;
-    // console.log(state.entities.articles)
-    // console.log(ownProps.match.params)
-    // const article = state.entities.articles
-    // console.log(article)
-    // debugger;
+    
     return {
         articleId: ownProps.match.params.id,
         // article: state.entities.articles[ownProps.match.params.id]

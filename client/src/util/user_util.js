@@ -1,6 +1,6 @@
 import axios from 'axios';
 export const login = async(user) => {
-    // debugger;
+    
     return await axios({
         method: "POST",
         url: '/login',
@@ -8,32 +8,26 @@ export const login = async(user) => {
             user
         }
     })
-    // .then((user) => {
-    //     let data = {
-    //         username: user.config.user.username,
-    //         password: user.config.user.password
-    //     }
-    //     return data
-    // })
+ 
 };
 
 
 
-export const signup = (user) => (
-    // debugger;
+export const signup = (user) => {
     
     
-    axios({
+    
+    return axios({
         method: 'POST',
         url: '/register',
         data: {
             username: user.username,
             password: user.password,
-            
+            politicalAffiliation: user.politicalAffiliation
         }
         
     })
-);
+};
 
 
 
@@ -48,5 +42,15 @@ export const logout = (user) => (
         
     })
     
+)
+
+export const userInfo = (userId) => (
+    axios({
+        url: `/user/${userId}`,
+        method: "GET",
+        data : {
+            comments: ""
+        }
+    })
 )
 

@@ -11,8 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     urlToImage: DataTypes.TEXT,
     content: DataTypes.TEXT
   }, {});
-  Article.associate = function({Comment}) {
+  Article.associate = function({Comment, Like}) {
     Article.hasMany(Comment)
+    Article.hasMany(Like)
   };
   Article.findRecent = async function(){
     let returnArr = []

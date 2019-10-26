@@ -1,17 +1,19 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_CURRENT_USER_INFO } from '../actions/session_actions';
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
     
-    // debugger;
-    // debugger;
+  
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            // debugger;
+            
             localStorage.setItem('currentUser', JSON.stringify(action.currentUser.data.user))
             return merge({}, state, { [action.currentUser.data.user.id]: action.currentUser.data.user });
+        case RECEIVE_CURRENT_USER_INFO:
+            
+            return merge({}, state, {comments: action.payload.data})
         default:
             return state;
     }

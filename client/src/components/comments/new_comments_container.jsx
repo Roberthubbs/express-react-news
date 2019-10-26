@@ -3,7 +3,7 @@ import { createNewComment } from '../../actions/comment_actions';
 import NewComment from './new_comment';
 export const mstp = (state) => {
     let userId;
-    // debugger;
+   
     if (state.session) {
         userId = state.session.id
     } else {

@@ -14,18 +14,18 @@ export default class AllComments extends Component {
     }
     render() {
         const comments = this.props.comments
-        // debugger;
+        
         console.log(comments)
         if (comments === null){
             return(null)
         }
-        console.log(comments)
+        
         return (
             <div className="content-container">
                 <p className="article-comments">This article has {comments.length} comments</p>
                 {comments.map((comment) => (
                     <div className="comment">
-                        <p className="comment-username">Comment by: {comment.username}</p>
+                        <p className="comment-username">Comment by: {comment.username}, {comment.politics}</p>
                         <p>{comment.content}</p>
                     </div>
                 ))}

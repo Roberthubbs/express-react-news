@@ -4,7 +4,7 @@ let allHeaders = {
     "Access-Control-Allow-Origin": "*"
 }
 export const receiveAll = async() => {
-    // debugger;
+    
     return await axios.request('/all', {
         data: "",
         method: "post",
@@ -13,7 +13,7 @@ export const receiveAll = async() => {
     })
 }
 export const receiveConservative = async() => {
-    // debugger;
+    
     return await axios.request('/conservative', {
         data: "",
         method: "post",
@@ -23,7 +23,7 @@ export const receiveConservative = async() => {
 }
 
 export const fetchArticle = async(id) => {
-    // debugger;
+   
     return await axios.request(`/show/${id}`, {
         method: "GET",
         
@@ -34,11 +34,82 @@ export const fetchArticle = async(id) => {
 };
 
 export const receiveLiberal = async() => {
-    // debugger;
+    
     return await axios.request('/liberal', {
         data: "",
         method: "post",
         headers: allHeaders
         
+    })
+}
+export const receiveLiberalElection = async() => {
+    
+    return await axios.request('/liberal/election', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveConservativeElection = async() => {
+    
+    return await axios.request('/conservative/election', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveLiberalBusiness = async() => {
+    
+    return await axios.request('/liberal/business', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveConservativeBusiness = async() => {
+    
+    return await axios.request('/conservative/business', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveLiberalWorld = async() => {
+    
+    return await axios.request('/liberal/world', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveConservativeWorld = async() => {
+    
+    return await axios.request('/conservative/world', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+export const receiveSports = async() => {
+    
+    return await axios.request('/sports', {
+        data: "",
+        method: "post",
+        headers: allHeaders
+        
+    })
+}
+
+export const receiveCategory = async(category) => {
+    return await axios.request(`/categories/${category}`, {
+        data: "",
+        method: "POST",
+        headers: allHeaders
     })
 }

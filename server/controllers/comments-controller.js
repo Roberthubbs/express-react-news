@@ -4,7 +4,7 @@ const { Comment } = require("../models")
 const { User } = require('../models')
 
 router.post("/show/:articleId/new", async(req, res) => {
-    // debugger;
+    
     let { userId, articleId, body} = req.body.comment
     if (!userId || !body){
         return res.status(400).send(

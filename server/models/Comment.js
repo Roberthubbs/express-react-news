@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   Comment.attachUserName = async function(comment) {
     let authorId = comment.author_id;
     let user = await sequelize.models.User.findOne({where: {id: authorId}});
+    comment.politics = user.politicalAffiliation
     comment.username = user.username;
     return comment;
   }

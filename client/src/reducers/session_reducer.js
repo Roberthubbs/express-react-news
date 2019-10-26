@@ -14,7 +14,7 @@ const sessionReducer = (oldState = nullObj, action) => {
     switch (action.type) {
         
         case RECEIVE_CURRENT_USER:
-            // debugger;
+            
             const { id } = action.currentUser.data.user
             return merge({}, { id })
         case LOGOUT_CURRENT_USER:

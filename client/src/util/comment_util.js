@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const newComment = async(comment) => {
-    // debugger;
+    
     return await axios({
         url: `/show/${comment.articleId}/new`,
         method: "POST",

@@ -18,11 +18,18 @@ class NewComment extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        // debugger;
-        this.props.createNewComment(this.state).then(this.props.history.push(`/all`))
+        
+        this.props.createNewComment(this.state).then(this.setState({ description: "" })).then(this.props.history.push(`/show/${this.props.articleId}`));
+        
     }
     render() {
-
+        if (!this.props.userId) {
+            return (
+                <div className="login-to-like">
+                    <p>Login or Create an Account to Comment On Articles</p>
+                </div>
+            )
+        }
         return (
             <div className="comment-form">
                 <p className="comment-title">Join The Conversation</p>

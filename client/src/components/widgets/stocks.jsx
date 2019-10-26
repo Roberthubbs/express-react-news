@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+// import StockSearch from './stock_search'
 export default class Stocks extends Component {
     constructor(props){
         super(props)
@@ -55,6 +55,7 @@ export default class Stocks extends Component {
        
         return (
             <div className="stock-widget">
+                {/* <StockSearch /> */}
                 <p className="stocks-info">Open: {open.slice(1,open.length-1)}</p>
                 <p className="stocks-info">Close: {high.slice(1, high.length-1)}</p>
                 <p className="stocks-info">Low: {low.slice(1, low.length-1)}</p>

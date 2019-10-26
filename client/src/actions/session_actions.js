@@ -6,7 +6,7 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RESET_SESSION_ERRORS = "RESET_SESSION_ERRORS";
-
+export const RECEIVE_CURRENT_USER_INFO = "RECEIVE_CURRENT_USER_INFO"
 
 
 export const receiveCurrentUser = (currentUser) => {
@@ -15,6 +15,13 @@ export const receiveCurrentUser = (currentUser) => {
         type: RECEIVE_CURRENT_USER,
         currentUser
         
+    }
+};
+export const receiveCurrentUsersInfo = (payload) => {
+    
+    return {
+        type: RECEIVE_CURRENT_USER_INFO,
+        payload
     }
 };
 
@@ -34,7 +41,7 @@ export const resetErrors = () => ({
 });
 
 export const login = user => dispatch => {
-    // debugger;
+    
     return (
         SessionAPIUtil.login(user).then(user => (
         dispatch(receiveCurrentUser(user))
@@ -65,3 +72,9 @@ export const logout = (user) => dispatch => (
         dispatch(receiveErrors(err))
     ))
 );
+
+export const findUserInformation = (userId) => dispatch => (
+    SessionAPIUtil.userInfo(userId).then((user) => (
+        dispatch(receiveCurrentUsersInfo(user))
+    ))
+)

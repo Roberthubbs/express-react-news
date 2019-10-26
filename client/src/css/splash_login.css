@@ -2,6 +2,9 @@
     background-image: url("../images/imagecollage.png");
     /* object-fit: cover; */
     min-height: 800px;
+    /* padding-top: 0; */
+    
+    margin-top: 0px;
 }
 /* .right-nav-bar{
     position: absolute;
@@ -18,10 +21,12 @@
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    height: 300px;
+    /* height: 300px; */
     border-radius: 8px;
+    min-width: 300px;
 }
 .link-change{
+    margin-top: 15px;
   color: white;
   text-decoration: none;
 }
@@ -37,7 +42,7 @@
 
 }
 .session-form-submit{
-    margin-top: 5px;
+    margin-top: 15px;
     color: white;
     background: rgba(0,116,217,1);
   background: -webkit-linear-gradient(top, rgba(0,116,217,1) 0%, rgba(0,65,122,1) 100%);
@@ -53,16 +58,64 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
-    height: 20px;
+    width: 80%;
+    height: 25px;
     margin-bottom: 8px;
+    border-radius: 4px;
+
+}
+.user-modal{
+    
+    position: absolute;
+    display: block;
+    background-color: white;
+    flex-direction: row;
+    text-align: center;
+    margin-top: 2px;
+    color: black;
+    font-size: 14px;
+    width: 120px;
+    border-radius: 5px;
+}
+.outer-p{
+    width: 100%;
+    /* padding: 20px; */
+    /* text-align: center; */
+     border-radius: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+        background-color: lightgray;
+
+}
+.activity-button{
+    text-decoration: none;
+    background-color: lightgray;
+    /* border: 1px solid black; */
+    /* width: 100%; */
+    /* margin-top: 5px; */
+    color: black;
+    font-size: 14px;
+    
+}
+.logout-button{
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+    text-decoration: none;
+        background-color: lightgray;
+
+    border-top: 1px solid grey;
+    width: 100%;
+    color: black;
+    font-size: 14px;
+     height: 30px;
 }
 .password-input{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
-    height: 20px;
+    width: 80%;
+    height: 25px;
+    border-radius: 4px;
 }
 
 .logout-button-h{
@@ -73,15 +126,18 @@
     color: darksalmon;
 }
 .username-greeting{
-    color: white;
+    color: black;
     font-size: 14px;
     font-weight: 300px;
 }
 
 .right-nav-bar > a {
     text-decoration: none;
-    color: white;
+    color: black;
     padding-left: 4px;
+    font-weight: 600;
+    font-size: 13px;
+
 }
 
 .emblem{
@@ -90,10 +146,12 @@
 
 .middle-head-links > a{
     text-decoration: none;
-    color: white;
+    color: black;
     padding: 6px;
-    border: .5px solid white;
+    font-size: 13px;
+    font-weight: 700;
+    /* border: .5px solid black; */
 }
 .middle-head-links{
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }

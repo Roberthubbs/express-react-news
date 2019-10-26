@@ -1,24 +1,35 @@
 .weather-widget{
-    background-color: rgba(0, 0, 255, 0.6);
+  
+    border-right: 1px solid rgba(100, 100, 100, 0.6);
     padding: 20px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     text-align: center;
-    color: white;
+    color: black;
     width: 15%;
-    position: fixed;
-    margin-left: 5px;
+    position: absolute;
+    
+    padding-bottom: 0;
+   background-color: rgba(220, 220, 220, .8);
+    color: sienna;
+     overflow: visible;
+     z-index: 2;
 }
-
+.weather-widget>p{
+    margin-top: 4px;
+}
 .selector{
     left: 0;
     bottom: 0;
     position: absolute;
-    width: 50%;
+    width: 100%;
     top: 90%;
+    
 }
 .weather-buttons{
     width: 100%;
     background-color: rgb(104, 104, 241);
+    
+     
 }
 .selector-button{
     background-color: rgb(104, 104, 241);
@@ -29,6 +40,7 @@
     font-weight: 600;
     font-size: 16px;
     border-radius: 5px;
+    
 }
 
 
@@ -41,7 +53,10 @@
     font-weight: 500;
     border: none;
     border-bottom: 1px solid black;
+     
+    
 }
 .selector > button:focus{
    outline: none;
+  
 }

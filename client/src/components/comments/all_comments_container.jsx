@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import AllComments from './all_comments';
 import { fetchAllComments } from '../../actions/comment_actions'
 export const mstp = (state) => {
-    // debugger;
+ 
     return {
         comments: Object.values(state.entities.comments)
     }

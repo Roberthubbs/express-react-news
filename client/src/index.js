@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import configureStore from './store/store';
 let store;
 if (localStorage.getItem('currentUser')){
-    // debugger;
+    
     
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     // currentUser = JSON.parse(currentUser)

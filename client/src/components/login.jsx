@@ -1,17 +1,21 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDemocrat, faRepublican } from '@fortawesome/free-solid-svg-icons';
+import{ RECEIVE_CURRENT_USER } from '../actions/session_actions';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
             password: '',
-
+            politicalAffiliation: null
         };
         this.handleGuestSubmit = this.handleGuestSubmit.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.decideConservative = this.decideConservative.bind(this);
+        this.decideLiberal = this.decideLiberal.bind(this);
+        
     }
 
 
@@ -30,9 +34,14 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        // localStorage.setItem('currentUser', user)
-        // debugger;
-        this.props.processForm(user).then(this.props.history.push("/testing"));
+       
+        this.props.processForm(user).then((action) => {
+            debugger;
+            if (action.type === RECEIVE_CURRENT_USER){
+                 this.props.history.push(`/user/${action.currentUser.data.user.id}`)
+                };
+            }
+        );
 
     }
     handleGuestSubmit(e) {
@@ -41,7 +50,18 @@ class SessionForm extends React.Component {
         this.props.loginDemo({ username: "DemoUser", password: "Password" }).then(() => this.props.history.push("/"));
     }
 
-
+    decideLiberal(e){
+        e.preventDefault()
+        this.setState({
+            politicalAffiliation: "Liberal"
+        })
+    }
+    decideConservative(e){
+        e.preventDefault()
+        this.setState({
+            politicalAffiliation: "Conservative"
+        })
+    }
     renderErrors() {
         return (
             <div className="login-errors">
@@ -97,6 +117,13 @@ class SessionForm extends React.Component {
                                         onChange={this.update('password')}
                                         className="password-input" />
                                 </label>
+                                {this.props.formType === "Signup" ?
+                                    <div className="decider-div">
+                                        <button onClick={this.decideLiberal} className="decider-button-lib"><FontAwesomeIcon icon={faDemocrat} size={"4x"} /></button>
+                                        <button onClick={this.decideConservative} className="decider-button-con"><FontAwesomeIcon icon={faRepublican} size={"4x"} /></button>
+                                    <p>{this.state.politicalAffiliation}</p>    
+                                        {/* <button></button> */}
+                                    </div> : null}
                                 <h2 className="impt-label">{this.renderErrors()}</h2>
                                 <br />
 
@@ -137,8 +164,13 @@ class SessionForm extends React.Component {
                                         onChange={this.update('password')}
                                         className="password-input" />
                                 </label>
-
-                                <br />
+                                {this.props.formType === "Signup" ?
+                                    <div className="decider-div">
+                                        <input type="button" onClick={this.decideLiberal} className="decider-button-lib" value="Liberal" />
+                                        <input type="button" onClick={this.decideConservative} className="decider-button-con" value="Conservative"/>
+                                        {/* <button></button> */} <p className="political-label">{this.state.politicalAffiliation}</p> 
+                                    </div> : null}
+                                {/* <br /> */}
 
                                 <input className="session-form-submit" type="submit" value={this.props.formType} />
                                 <button className="session-form-submit" onClick={this.handleGuestSubmit} >Continue As Guest</button>

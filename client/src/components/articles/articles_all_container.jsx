@@ -3,7 +3,7 @@ import Articles from './articles_call';
 import { connect } from 'react-redux';
 
 const mstp = (state) => {
-    // debugger;
+    
     return {
         articles: Object.values(state.entities.articles)
     }

@@ -16,14 +16,9 @@ class LiberalArticles extends React.Component {
 
 
         await this.props.receiveAllArticles()
-        // if (this.props.articles){
-        //     // debugger;
-        //     // console.log([this.props.articles])
-        //     this.setState({articles: this.props.articles, isLoaded: true})
-        // }
+       
         if (this.props.articles) {
-            // debugger;
-            // console.log([this.props.articles])
+           
             this.setState({ articles: this.props.articles, isLoaded: true })
         }
     }
@@ -37,6 +32,8 @@ class LiberalArticles extends React.Component {
             return (
                 <div>
                     <WeatherCurrent />
+                    <h2 className="con-news-titles">Showing Articles From Typically Liberal News Sources</h2>
+
                     <div className="article-index">
                         {Object.values(articles).map(item => (
 

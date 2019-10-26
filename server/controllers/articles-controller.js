@@ -81,6 +81,8 @@ router.get(`/show/:id`, async(req, res) => {
     // console.log(req)
     res.send(article)
 })
+
+//===============================  LIBERAL ROUTES ==========================================
 router.post("/liberal", async(req, res) => {
     let globalRes = res
     
@@ -90,6 +92,252 @@ router.post("/liberal", async(req, res) => {
 
     }).then((res) => {
 
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+router.post("/liberal/election", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        sources: 'cnn,the-washington-post,the-new-york-times,cbs-news,nbc-news',
+        q: 'election'
+    }).then((res) => {
+
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+router.post("/liberal/world", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        sources: 'cnn,the-washington-post,the-new-york-times,cbs-news,nbc-news',
+        q: 'world'
+    }).then((res) => {
+
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+router.post("/liberal/business", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        sources: 'cnn,the-washington-post,the-new-york-times,cbs-news,nbc-news',
+        q: 'business'
+    }).then((res) => {
+
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+
+//======================= CONSERVATIVE ROUTES ====================================
+router.post("/conservative/election", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        sources: 'breitbart-news,the-american-conservative,fox-news',
+        q: 'election'
+    }).then((res) => {
+
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+router.post("/conservative/world", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        sources: 'breitbart-news,the-american-conservative,fox-news',
+        q: 'world'
+    }).then((res) => {
+
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+router.post("/conservative/business", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        sources: 'breitbart-news,the-american-conservative,fox-news',
+        q: 'business'
+    }).then((res) => {
+
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+router.post("/categories/:category", async(req, res) => {
+    
+    let globalRes = res
+    let { category } = req.params;
+    let articles;
+    newsapi.v2.topHeadlines({
+        category: category,
+        country: 'us'
+    }).then((res) => {
+        
+        return Promise.all(res.articles.map(async (article) => {
+            // article = await Article.create(article)
+            // return article
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                // console.log("not found", article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+
+
+router.post("/sports", async(req, res) => {
+    let globalRes = res
+    
+    let articles;
+    newsapi.v2.topHeadlines({
+        
+        category: "sports",
+        country: 'us'
+    }).then((res) => {
+        console.log(res)
         return Promise.all(res.articles.map(async (article) => {
             // article = await Article.create(article)
             // return article

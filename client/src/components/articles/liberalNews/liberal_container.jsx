@@ -3,7 +3,7 @@ import LiberalArticles from './liberal';
 import { connect } from 'react-redux';
 
 const mstp = (state) => {
-    // debugger;
+    
     return {
         articles: state.entities.articles
     }

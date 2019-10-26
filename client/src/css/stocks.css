@@ -1,12 +1,13 @@
 .stock-widget{
-     background-color: rgba(0, 0, 255, 0.6);
+     background-color: rgba(200, 200, 200);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    color: white;
+    color: black;
     width: 15%;
-    /* position: absolute; */
-    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    
     /* align-self: right; */
     /* justify-self: flex-end; */
 }

@@ -8,21 +8,24 @@
 .list-box{
   margin-top: 20px;
 }
-.article-index-list{
-  max-width: 70%;
-  text-align: center;
-  display: inline-block;
-  padding: 8px;
-  border-radius: 14px;
-  background-color: rgba(155,155,155,.5);
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  border-top: 20px solid blue;
+.list-box-bold{
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 600;
 }
-/* .article-description{
-  max-width: 80%;
-} */
+.article-index-list {
+    max-width: 70%;
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    padding-right: 24px;
+}
+
 .article-index{
   height: 400px;
   width: 80%;
@@ -31,11 +34,7 @@
 }
 
 
-/* .list-box.a{
-  text-decoration: none;
-  position: absolute;
-  padding-top: 30px;
-} */
+
 .index-image{
   padding-top: 30px;
   width: 80%;
@@ -47,9 +46,7 @@
   max-width: 80%;
   max-height: 400px;
 }
-/* .article-content{
-  max-width: 80%;
-} */
+
 
 
 .article-show{
@@ -71,4 +68,63 @@
 .article-show-image{
   width: 80%;
   object-fit: cover;
+}
+
+.links-menu{
+  width: 20%;
+  display: inline-block;
+  position: absolute;
+  overflow: visible;
+  right: 5px;
+  top: 200px;
+ text-align: center;
+}
+.liberal-side-links{
+ 
+  display: block;
+  text-decoration: none;
+  border-top: 1px solid blue;
+ 
+  padding-top: 10px;
+
+  list-style: none;
+  padding-left: 0px;
+ 
+  margin-bottom: 0px;
+ 
+}
+.conservative-side-links{
+
+  display: block;
+  text-decoration: none;
+ 
+  border-top: 1px solid red;
+
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0px;
+ 
+  margin-top: 0px;
+  padding-top: 10px;
+
+}
+
+.menu-link-l{
+
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  margin-left: 0px;
+  padding-left: 0px;
+  
+
+}
+.liberal-link{
+  background-color: rgba(0,0,255,.1);
+  padding: 5px;
+}
+.conservative-link{
+  background-color: rgba(255,0,0,.1);
+  padding: 5px;
 }
