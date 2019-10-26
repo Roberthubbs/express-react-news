@@ -41,6 +41,16 @@ body{
     margin-left: auto;
     border-radius: 4px;
 }
+.decider-button-un{
+    width: 80%;
+    font-size: 20px;
+    color: black;
+    background-color: lightgray;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 4px;
+    margin-top: 8px;
+}
 .con-news-titles{
     text-align: center;
     color: black;

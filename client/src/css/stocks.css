@@ -11,3 +11,12 @@
     /* align-self: right; */
     /* justify-self: flex-end; */
 }
+.twitter-embed{
+    position: absolute;
+    top: 50%;
+    /* left: 2%;
+    wi */
+    padding-left: 8px;
+    width: 17%;
+    /* padding: 20px; */
+}

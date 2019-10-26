@@ -4,6 +4,9 @@ import WeatherCurrent from '../widgets/weather_current';
 import Stocks from '../widgets/stocks'
 import { LinksMenu } from './links/links';
 import HappyArticles from './articleWidgets/sports_container';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { TwitterTimelineEmbed} from 'react-twitter-embed';
+
 class Articles extends React.Component {
     constructor(props){
         super(props);
@@ -27,12 +30,29 @@ class Articles extends React.Component {
         let { error, isLoaded } = this.state;
       
          if (!isLoaded){
-            return <div>Loading...</div>
+             return (
+             <div>
+                 <ClipLoader
+
+
+                 size={150}
+                 color={'#123abc'}
+                 loading={this.state.loading}
+                /></div>
+            )
         } else {
             return (
                 <div>
+                    
                     <WeatherCurrent />
-                    <Stocks />
+                    <div className="twitter-embed">
+                    <TwitterTimelineEmbed
+                        sourceType="list"
+                        ownerScreenName="palafo"
+                        slug="breakingnews"
+                        options={{ height: 400 }}
+                    />
+                    </div>
                     <LinksMenu />
                     <HappyArticles />
                     <h2 className="con-news-titles">Showing Articles From All Sources</h2>

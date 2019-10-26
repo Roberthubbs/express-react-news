@@ -22,7 +22,8 @@ router.post('/register', async (req, res) => {
         return res.json(data);
     } catch(err) {
         // console.log("this is err",err)
-        return res.status(400).send(err);
+        
+        return res.status(400).send(['That Username Is Already Taken']);
     }
 });
 

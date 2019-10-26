@@ -5,6 +5,7 @@ import NewComment from '../comments/new_comments_container';
 import AllComments from '../comments/all_comments_container';
 import NewLike from '../comments/new_likes_container';
 import AllLikes from '../comments/all_likes_con';
+import ClipLoader from 'react-spinners/ClipLoader';
 class ArticleShow extends Component {
     constructor(props){
         super(props)
@@ -31,7 +32,16 @@ class ArticleShow extends Component {
     render() {
         
         if (!this.state.isLoaded){
-            return("loading")
+            return (
+            <div className="article-show">
+                <ClipLoader
+
+
+                size={150}
+                color={'#123abc'}
+                loading={this.state.loading}
+            /></div>
+            )
         }  else {
             const article = this.state.article.payload.data;
             const {id, content, author, urlToImage } = article;

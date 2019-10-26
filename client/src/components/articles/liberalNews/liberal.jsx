@@ -1,7 +1,7 @@
 import React from 'react'
 import Article from '../article_item';
 import WeatherCurrent from '../../widgets/weather_current';
-
+import ClipLoader from 'react-spinners/ClipLoader';
 class LiberalArticles extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,15 @@ class LiberalArticles extends React.Component {
         let { error, isLoaded } = this.state;
 
         if (!isLoaded) {
-            return <div>Loading...</div>
+            return (<div className="article-show">
+                <ClipLoader
+
+
+                    size={300}
+                    color={'#123abc'}
+                    loading={this.state.loading}
+                /></div>
+            )
         } else {
             const { articles } = this.state
             return (

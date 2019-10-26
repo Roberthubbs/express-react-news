@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       // console.log(password)
       return user.authorize();
     };
-    throw new Error('invalid password or username');
+    throw new Error(['invalid password or username']);
     
     
   }

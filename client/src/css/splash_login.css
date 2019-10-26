@@ -13,7 +13,7 @@
     padding-bottom: 30px;
 } */
 .login-form    {
-    height: 400px;
+    min-height: 400px;
     /* justify-self: center; */
     text-align: center;
     padding: 8px;
@@ -24,6 +24,7 @@
     /* height: 300px; */
     border-radius: 8px;
     min-width: 300px;
+    width: 70%;
 }
 .link-change{
     margin-top: 15px;
@@ -59,10 +60,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    height: 25px;
+    height: 40px;
     margin-bottom: 8px;
     border-radius: 4px;
-
+    font-size: 14px;
 }
 .user-modal{
     
@@ -76,6 +77,19 @@
     font-size: 14px;
     width: 120px;
     border-radius: 5px;
+}
+
+.login-errors{
+    width: 50%;
+    background: salmon;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 24px;
 }
 .outer-p{
     width: 100%;
@@ -114,10 +128,17 @@
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    height: 25px;
+    height: 40px;
+    margin-bottom: 8px;
     border-radius: 4px;
+    font-size: 14px;
 }
-
+.affiliation-chooser{
+    color: white;
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
 .logout-button-h{
     width: 70px;
     height: 30px;

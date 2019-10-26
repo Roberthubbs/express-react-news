@@ -8,7 +8,7 @@ const { Like } = require('../models');
 router.post("/show/:articleId/likes/new", async(req,res) => {
     
     // console.log(req)
-    debugger;
+    
     const { articleId, userId } = req.body.like
     if (!userId){
         return res.status(400).send(["Must login to like post"])
