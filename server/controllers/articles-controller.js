@@ -11,18 +11,7 @@ const cors = require('cors')
 
 
 let run = false;
-// const client = new Twitter({
-//     consumer_key: 'ZhSimGG53ecMlBhMwptyzrUfs',
-//     consumer_secret: 'rMFsPmh8rcxcWxgwRUuMiiudi6YA5dQ6VsCb5G78OFbuaoBowj',
-//     access_token_key: '1188143117272109056-PoM7GcO78pk1GV6DeGV3cYlk2UzYxb',
-//     access_token_secret: 'nrJmnjntqJqsDVkG5YwS5MOHYOk9HV31e46riiGM9PT6n',
-   
-// });
-// client.get('favorites/list', function (error, tweets, response) {
-//     // if (error) throw error;
-//     console.log(tweets);  // The favorites.
-//     // console.log(response);  // Raw response object.
-// });
+
 router.post('/all', async(req, res) => {
    
     let globalRes = res
