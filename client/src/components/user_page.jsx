@@ -40,7 +40,7 @@ export default class UserPage extends Component {
                     <div className="comment-block">
                         <div className="comment-title-with-link">
                             <p >You Commented On: {comment.title}</p>
-                            <Link to={`/show/${comment.post_id}`}>To Discussion</Link>
+                            <Link className="discussion-link-4"to={`/show/${comment.post_id}`}>To Discussion</Link>
                         </div>
                         <p className="comment-info-content">{comment.content}</p>
                     </div>

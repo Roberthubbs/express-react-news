@@ -16,6 +16,11 @@ export const createNewLike = like => dispatch => (
         dispatch(receiveLike(like))
     })
 )
+export const destroyNewLike = like => dispatch => (
+    LikeUtil.destroyLike(like).then((like) => {
+        dispatch(receiveLike(like))
+    })
+)
 
 export const fetchAllLikes = articleId => dispatch => (
     LikeUtil.fetchLikes(articleId).then((likes) => {

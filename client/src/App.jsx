@@ -115,7 +115,7 @@ class App extends React.Component {
         <AuthRoute exact path="/register" component={RegisterContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <Route path="/all" component={Articles} />
-        {/* <Route path="/" component={Articles} /> */}
+        <Route exact path="/" component={Articles} />
         <Route path="/categories/:category" component={CategoryArticles} />
         <Route exact path="/sports" component={SportsArticles} />
         <Route exact path="/user/:userId" component={UserPage} />

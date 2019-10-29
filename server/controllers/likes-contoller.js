@@ -15,13 +15,35 @@ router.post("/show/:articleId/likes/new", async(req,res) => {
     }
     try {
         let obj = {postId: articleId, userId: userId}
-        let like = await Like.create(obj);
-        res.send(like)
+       
+
+            let like = await Like.create(obj);
+            res.send(like)
+        
     } catch(err){
         return res.status(400).send(["Sorry, something went wrong on our end"])
+        
     }
 })
-
+router.delete("/show/:articleId/likes/new", async(req, res) => {
+    const { articleId, userId } = req.body.like
+    // let obj = { postId: articleId, userId: userId }
+    debugger;
+    if (await Like.findOne({ where: { postId: articleId, userId: userId } })) {
+        let like = await Like.findOne({ where: { postId: articleId, userId: userId }, raw: true })
+        Promise.resolve(Like.destroy({
+            where: {
+                postId: articleId,
+                userId: userId
+            }
+        }))
+        .then((deletedLike) => {
+                res.json(deletedLike)
+        }).catch((err) => {
+            console.log(err)
+        })
+    } 
+})
 router.get("/show/:articleId/likes", async(req,res) => {
     
     const { articleId } = req.params

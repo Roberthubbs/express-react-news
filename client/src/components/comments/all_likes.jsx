@@ -12,6 +12,12 @@ export default class AllLikes extends Component {
             console.log(res)
         })
     }
+    componentDidUpdate(prevProps){
+        // debugger
+        if (this.props.likes.includes(1) || prevProps.likes.length < this.props.likes.length){
+            this.componentDidMount()
+        }
+    }
     render() {
         const likes = this.props.likes
 

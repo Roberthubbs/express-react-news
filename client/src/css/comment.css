@@ -4,7 +4,7 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(8, 8, 240, 0.6);
+    background-color: rgba(100, 100, 100, 0.6);
     padding: 10px;
      border-radius: 8px;
 }
@@ -33,7 +33,7 @@
 }
 
 .content-container{
-    background:  rgba(8, 8, 240, 0.4);
+    background:  rgba(100, 100, 100, 0.4);
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -56,23 +56,32 @@
 }
 
 .comment-username{
-    font-size: 10px;
+    font-size: 12px;
+    padding: 6px;
 }
 .article-comments{
     color: white;
 }
-
+.discussion-link-4{
+    text-decoration: none;
+}
 .user-comments-info{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
-    border: 1px solid orange;
+    /* margin-top: 10px; */
+    top: 20%;
+    border: 1px solid salmon;
     /* min-height: 500px; */
     border-radius: 3px;
-    background-color: rgba(0, 0, 255, 0.6);
+    background-color: rgba(100, 100, 100, .5);
+    position: absolute;
+    margin-left: 5%;
+    padding-bottom: 10px;
 }
-
+.user-stats{
+    padding: 20px;
+}
 .comment-block{
     width: 80%;
     margin-left: auto;
@@ -90,6 +99,7 @@
     margin-bottom: 0;
     background-color: white;
     padding-bottom: 10px;
+    padding: 20px;
 }
 .elephant{
     position: absolute;
@@ -105,19 +115,21 @@
     color: red;
 }
 .donkey{
-    position: absolute;
+        position: absolute;
     margin-left: 0;
     margin-right: 0;
     align-self: left;
     padding-left: 0;
     justify-self: left;
     left: 20%;
-    top: 27%;
+    top: 10%;
     color: blue;
 }
 .comment-history-title{
     color: white;
    text-align: center;
+   margin-bottom: 8px;
+   margin-top: 8px;
 }
 .comment-info-content{
     border: 1px solid blue;

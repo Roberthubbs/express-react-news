@@ -13,6 +13,19 @@ export const newLike = async (like) => {
         }
     })
 }
+export const destroyLike = async (like) => {
+   
+    return await axios({
+        url: `/show/${like.articleId}/likes/new`,
+        method: "DELETE",
+        data: {
+            // userId: comment.userId,
+            // articleId: comment.articleId,
+            // body: comment.body
+            like
+        }
+    })
+}
 
 export const fetchLikes = async (articleId) => {
     return await axios({

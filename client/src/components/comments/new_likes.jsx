@@ -5,7 +5,8 @@ class NewLike extends Component {
         super(props)
         this.state = {
             userId: this.props.userId,
-            articleId: this.props.articleId
+            articleId: this.props.articleId,
+            clicked: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -13,8 +14,17 @@ class NewLike extends Component {
     
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.clicked){
 
-        this.props.createNewLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
+            this.setState({clicked: false})
+            this.props.deleteLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
+        } else {
+            this.setState({ clicked: true })
+            this.props.createNewLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
+
+        }
+    
+        // this.props.createNewLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
 
     }
     render() {

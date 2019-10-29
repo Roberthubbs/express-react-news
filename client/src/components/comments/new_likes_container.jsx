@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createNewLike } from '../../actions/like_actions';
+import { createNewLike, destroyNewLike } from '../../actions/like_actions';
 import NewLike from './new_likes';
 export const mstp = (state) => {
     let userId;
@@ -17,7 +17,8 @@ export const mstp = (state) => {
 
 
 export const mdtp = dispatch => ({
-    createNewLike: like => dispatch((createNewLike(like)))
+    createNewLike: like => dispatch((createNewLike(like))),
+    deleteLike: like => dispatch((destroyNewLike(like)))
 })
 
 export default connect(mstp, mdtp)(NewLike)

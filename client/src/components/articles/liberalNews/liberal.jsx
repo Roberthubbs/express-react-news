@@ -2,6 +2,7 @@ import React from 'react'
 import Article from '../article_item';
 import WeatherCurrent from '../../widgets/weather_current';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { LinksMenu } from '../links/links';
 class LiberalArticles extends React.Component {
     constructor(props) {
         super(props);
@@ -40,6 +41,7 @@ class LiberalArticles extends React.Component {
             return (
                 <div>
                     <WeatherCurrent />
+                    <LinksMenu />
                     <h2 className="con-news-titles">Showing Articles From Typically Liberal News Sources</h2>
 
                     <div className="article-index">

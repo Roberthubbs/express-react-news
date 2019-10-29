@@ -3,6 +3,7 @@ import Article from '../article_item';
 import WeatherCurrent from '../../widgets/weather_current';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { LinksMenu } from '../links/links';
+
 class CategoryArticles extends React.Component {
     constructor(props) {
         super(props);
