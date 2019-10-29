@@ -3,7 +3,7 @@ const router = express.Router();
 const fetch = require('node-fetch');
 const https = require('https');
 const axios = require('axios');
-const { Article } = require("../models");
+const { Article, Like, Comment } = require("../models");
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('5d8f7e7fb04d49f8b5afc10db6e05367');
 const cors = require('cors')
@@ -11,9 +11,25 @@ const cors = require('cors')
 
 
 let run = false;
+findAndClearArticles = async () => {
+    debugger;
+    let arts = await Article.findAll();
+    let comments = await Comment.findAll();
+    let likes = await Comment.findAll();
+    let commentsIdArr = [];
+    comments.forEach((comment) => {
+        commentsIdArr.push(comment.post_id)
+    });
+    likes.forEach((like) => {
+        commentsIdArr.push(like.postId)
+    });
+    return await Article.delete({ where: !commentsIdArr.includes(id) }).then((deleted) => {
+        console.log(deleted)
+    })
+}
 
 router.post('/all', async(req, res) => {
-   
+    findAndClearArticles();
     let globalRes = res
     // console.log("hitting", req);
     let articles;
@@ -361,6 +377,7 @@ router.post("/sports", async(req, res) => {
         res.send(err)
     })
 })
+
 
 
 module.exports = router;

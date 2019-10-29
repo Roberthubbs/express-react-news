@@ -51,15 +51,15 @@ class ArticleShow extends Component {
                 <p className="article-show-author">{author}</p>
                 <img src={urlToImage} alt="No Image Associated With Article" className="article-show-image"/>
                 <p className="article-show-content">{content}</p> 
-                <NewLike 
+                {/* <NewLike 
                     articleId={id}
-                />
+                /> */}
                 <AllLikes 
                     articleId={id}
                 />
-                <NewComment 
+                {/* <NewComment 
                     articleId={id}
-                />
+                /> */}
                 <AllComments 
                     articleId={id}
                 />

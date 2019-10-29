@@ -9,23 +9,25 @@ class NewLike extends Component {
             clicked: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUnlike = this.handleUnlike.bind(this);
     }
 
     
     handleSubmit(e) {
         e.preventDefault();
-        if (this.state.clicked){
-
-            this.setState({clicked: false})
-            this.props.deleteLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
-        } else {
+        
             this.setState({ clicked: true })
             this.props.createNewLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
 
-        }
+        
     
         // this.props.createNewLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
 
+    }
+    handleUnlike(e) {
+        e.preventDefault();
+        this.setState({ clicked: false })
+        this.props.deleteLike(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
     }
     render() {
 
@@ -39,8 +41,10 @@ class NewLike extends Component {
         return (
             <div className="comment-form">
                 <form action="">
-                 
-                    <input className="comment-button" type="button" value="Like" onClick={this.handleSubmit} />
+                    {this.state.clicked ? 
+                    <input className="comment-button" type="button" value="Unlike" onClick={this.handleUnlike} /> :
+                    <input className="comment-button" type="button" value="Like" onClick={this.handleSubmit} /> 
+                    }
                 </form>
 
             </div>

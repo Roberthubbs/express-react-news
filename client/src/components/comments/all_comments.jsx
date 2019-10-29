@@ -1,16 +1,39 @@
 import React, { Component } from 'react'
-
-export default class AllComments extends Component {
+import { withRouter } from 'react-router-dom';
+class AllComments extends Component {
     constructor(props){
         super(props)
         this.state = {
-            comments: null
+            comments: null,
+            body: "",
+            userId: this.props.userId,
+            articleId: this.props.articleId,
+            commentPosted: false
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     async componentDidMount(){
         this.props.fetchAllComments(this.props.articleId).then((res) => {
             console.log(res)
         })
+    }
+    componentDidUpdate(prevProps){
+        if (this.state.commentPosted){
+            this.setState({commentPosted: false})
+            this.componentDidMount()
+        }
+        console.log(prevProps)
+    }
+    updateField(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        this.setState({commentPosted: true, description: ""})
+        this.props.createNewComment(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
+
     }
     render() {
         const comments = this.props.comments
@@ -22,6 +45,18 @@ export default class AllComments extends Component {
         
         return (
             <div className="content-container">
+                {this.props.userId ? 
+                <div className="comment-form">
+                    <p className="comment-title">Join The Conversation</p>
+                    <form action="">
+                        <input type="text"
+                            className="comment-input"
+                            value={this.state.description}
+                            onChange={this.updateField("body")} />
+                        <input className="comment-button" type="button" value="Post Comment" onClick={this.handleSubmit} />
+                    </form>
+
+                </div> : null}
                 <p className="article-comments">This article has {comments.length} comments</p>
                 {comments.map((comment) => (
                     <div className="comment">
@@ -34,3 +69,6 @@ export default class AllComments extends Component {
         )
     }
 }
+
+
+export default withRouter(AllComments)
