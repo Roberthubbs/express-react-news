@@ -49,7 +49,8 @@ export const userInfo = (userId) => (
         url: `/user/${userId}`,
         method: "GET",
         data : {
-            comments: ""
+            comments: "",
+            
         }
     })
 )

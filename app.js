@@ -16,6 +16,7 @@ const articlesController = require('./server/controllers/articles-controller');
 const viewsController = require('./server/controllers/views_controller');
 const commentsController = require('./server/controllers/comments-controller');
 const likesController = require('./server/controllers/likes-contoller.js');
+const followsController = require('./server/controllers/follows-controller.js');
 const https = require('https');
 const db = require('./server/models/index')
 
@@ -51,6 +52,7 @@ app.use(viewsController);
 
 app.use(commentsController);
 app.use(likesController);
+app.use(followsController);
 
 // import Cookies from 'universal-cookie';
 

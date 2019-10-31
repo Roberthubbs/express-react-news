@@ -37,10 +37,16 @@ class SessionForm extends React.Component {
         const user = Object.assign({}, this.state);
        
         this.props.processForm(user).then((action) => {
-     
+            
             if (action.type === RECEIVE_CURRENT_USER){
-                 this.props.history.push(`/user/${action.currentUser.data.user.id}`)
-                };
+                if (action.currentUser.data.user.politicalAffiliation === "Liberal"){
+                    this.props.history.push("/liberal")
+                } else if (action.currentUser.data.user.politicalAffiliation === "Conservative"){
+                    this.props.history.push("/conservative")
+                } else {
+                    this.props.history.push("/all")
+                }
+                }
             }
         );
 

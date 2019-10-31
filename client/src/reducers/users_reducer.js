@@ -13,7 +13,7 @@ const usersReducer = (state = {}, action) => {
             return merge({}, state, { [action.currentUser.data.user.id]: action.currentUser.data.user });
         case RECEIVE_CURRENT_USER_INFO:
             
-            return merge({}, state, {comments: action.payload.data})
+            return merge({}, state, {comments: action.payload.data.comments, user: action.payload.data.user})
         default:
             return state;
     }

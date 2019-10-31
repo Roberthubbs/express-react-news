@@ -86,12 +86,13 @@ router.get('/me', (req, res) => {
 router.get('/user/:id', async(req, res) => {
 
     // console.log(req)
+    
     let id = req.params.id;
     // let articles = [];
     if (!id){
         return res.status(400).send("Log in to view user information")
     }
-    
+    let user = await User.findOne({where: {id: id}, raw: true})
     let comments = await Comment.findAll({where: {author_id: id}, raw: true});
     return Promise.all(comments.map(async(comment) => {
         article = await Article.findOne({where: {id: comment.post_id}, raw: true});
@@ -99,8 +100,9 @@ router.get('/user/:id', async(req, res) => {
         comment.url = article.url;
         // comment.articleId = article.id
         return comment
+        
     })).then((result) => {
-        res.send(result)
+        res.send({comments: result, user: user})
     });
     // console.log(comments);
     // // console.log(articles)

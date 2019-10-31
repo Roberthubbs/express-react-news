@@ -12,7 +12,7 @@ const cors = require('cors')
 
 let run = false;
 findAndClearArticles = async () => {
-    debugger;
+  
     let arts = await Article.findAll();
     let comments = await Comment.findAll();
     let likes = await Comment.findAll();

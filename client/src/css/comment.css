@@ -19,7 +19,7 @@
 }
 .comment-button{
     margin-left: auto;
-    width: 15%;
+    width: 30%;
     height: 30px;
     border-radius: 3px;
     background-color: white;
@@ -82,6 +82,12 @@
 .user-stats{
     padding: 20px;
 }
+.user-icon{
+    display: inline-block;
+}
+.user-stats-list{
+    display: inline-block;
+}
 .comment-block{
     width: 80%;
     margin-left: auto;
@@ -102,27 +108,22 @@
     padding: 20px;
 }
 .elephant{
-    position: absolute;
+    
     margin-left: 0;
     margin-right: 0;
     align-self: left;
     padding-left: 0;
     justify-self: left;
-    left: 20%;
-    top: 27%;
-    /* width: 40px;
-    height: 40px; */
+ 
     color: red;
 }
 .donkey{
-        position: absolute;
+     
     margin-left: 0;
     margin-right: 0;
     align-self: left;
     padding-left: 0;
     justify-self: left;
-    left: 20%;
-    top: 10%;
     color: blue;
 }
 .comment-history-title{
@@ -141,6 +142,7 @@
     border-bottom-left-radius: 6px;
     background-color: rgb(224, 223, 223);
     min-height: 30px;
+    margin-bottom: 10px;
 }
 
 .login-to-like{

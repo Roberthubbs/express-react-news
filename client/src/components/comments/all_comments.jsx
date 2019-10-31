@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class AllComments extends Component {
     constructor(props){
         super(props)
@@ -60,7 +61,7 @@ class AllComments extends Component {
                 <p className="article-comments">This article has {comments.length} comments</p>
                 {comments.map((comment) => (
                     <div className="comment">
-                        <p className="comment-username">Comment by: {comment.username}, {comment.politics}</p>
+                        <p className="comment-username">Comment by: {comment.username}, {comment.politics} <Link to={`/user/${comment.userId}`}>View User</Link></p>
                         <p>{comment.content}</p>
                     </div>
                 ))}

@@ -28,7 +28,7 @@ router.post("/show/:articleId/likes/new", async(req,res) => {
 router.delete("/show/:articleId/likes/new", async(req, res) => {
     const { articleId, userId } = req.body.like
     // let obj = { postId: articleId, userId: userId }
-    debugger;
+  
     if (await Like.findOne({ where: { postId: articleId, userId: userId } })) {
         let like = await Like.findOne({ where: { postId: articleId, userId: userId }, raw: true })
         Promise.resolve(Like.destroy({

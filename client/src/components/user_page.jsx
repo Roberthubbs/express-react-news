@@ -6,17 +6,18 @@ export default class UserPage extends Component {
         super(props)
         this.state = {
             comments: null,
-
+            user: null
         }
     }
 
     componentDidMount(){
         this.props.fetchUsersInfo(this.props.userId).then((res) => {
-            
-            this.setState({comments: res.payload.data})
+           
+            this.setState({comments: res.payload.data.comments, user: res.payload.data.user})
         });
     }
     render() {
+        
         if (!this.state.comments || this.state.comments.length === 0){
             return (
                 <div className="user-comments-info">
@@ -27,24 +28,29 @@ export default class UserPage extends Component {
             )
         }
         const comments = this.state.comments;
-        const { user } = this.props;
+        const { user } = this.state;
         return (
             <div className="user-comments-info">
             <UserStats 
                 username={user.username}
                 politicalAffiliation={user.politicalAffiliation}
                 commentTotal={comments.length}
+                userId={this.props.userId}
                 />
+            {/* {this.state.comments.length > 0 ?  */}
+            {this.state.comments.length > 0 ? 
+            <div>
             <h2 className="comment-history-title">All Comment History</h2>
                 {comments.map((comment) => (
                     <div className="comment-block">
                         <div className="comment-title-with-link">
-                            <p >You Commented On: {comment.title}</p>
+                            <p >{user.username} Commented On: {comment.title}</p>
                             <Link className="discussion-link-4"to={`/show/${comment.post_id}`}>To Discussion</Link>
                         </div>
                         <p className="comment-info-content">{comment.content}</p>
-                    </div>
+                    </div> 
                 ))}
+                </div> : null }
             </div>
         )
     }
