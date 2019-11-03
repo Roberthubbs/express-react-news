@@ -10,7 +10,7 @@ const app = express();
 const path = require('path')
 const cookieParser = require('cookie-parser');
 
-const customAuthMiddleWare = require('./server/middleware/custom-middleware');
+
 const usersController = require('./server/controllers/user-controller');
 const articlesController = require('./server/controllers/articles-controller');
 const viewsController = require('./server/controllers/views_controller');
