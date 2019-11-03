@@ -23,8 +23,7 @@ export default class StockSearch extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.query}&apikey=PORN7B18F0F53ICV`)
-                    // debugger;
+        
                     this.setState({
                         isLoaded: true,
                         results: result.bestMatches
@@ -44,9 +43,7 @@ export default class StockSearch extends Component {
 
     }
     render() {
-        // {console.log(this.state.results)}
         let object = this.state.results
-        console.log(object)
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>

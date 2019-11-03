@@ -24,8 +24,6 @@ export default class WeatherForecast extends Component {
             .then(res => res.text())
             .then(
                 (result) => {
-                    // console.log(result)
-                    // console.log(result)
                     this.setState({
                         
                         weather: result,
@@ -71,7 +69,6 @@ export default class WeatherForecast extends Component {
         if (this.state.preliminaryLoaded){
             // console.log(this.state.weather["Days"][0])
             this.state.weather["Days"].forEach((day) => {
-                console.log("DAYYYY", day)
                 dayObj = {
                     date: day["date"],
                     max: day["temp_max_f"],

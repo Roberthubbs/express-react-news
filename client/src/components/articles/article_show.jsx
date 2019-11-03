@@ -21,7 +21,7 @@ class ArticleShow extends Component {
         this._isMounted = true
        
         this.props.fetchArticle(this.props.articleId).then((res) => {
-            // console.log(res)
+     
             this.setState({article: res, isLoaded: true})
         })
     }

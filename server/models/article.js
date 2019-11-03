@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       let data = '';
       let newObj = {};
       let article;
-      // let returnArr = [];
       res.on('data', (chunk) => {
         data += chunk
 
@@ -29,16 +28,12 @@ module.exports = (sequelize, DataTypes) => {
       })
 
       res.on('end', async () => {
-        // console.log(JSON.parse(data))
         JSON.parse(data).articles.forEach((datum) => {
           newObj = datum;
           article = Article.create(newObj).then((article) => {
-            // console.log(article)
             returnArr.push(article)
-            // console.log(returnArr)
           });
 
-          // console.log(items)
         })
 
       });
@@ -52,13 +47,11 @@ module.exports = (sequelize, DataTypes) => {
     setTimeout(() => null, 1000)
     await Article.findAll()
     let returnVal = returnArr;
-    console.log(returnVal)
 
 
     return returnVal;
   }
   Article.sendConservative = async(arr) => {
-    // let val = []
     arr.forEach((art) => {
       val.push(Article.create(art))
     }).then((res) => {

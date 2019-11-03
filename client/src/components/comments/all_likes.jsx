@@ -24,7 +24,6 @@ export default class AllLikes extends Component {
         });
     }
     componentDidUpdate(prevProps){
-        // debugger
         if (this.props.likes.includes(1) || prevProps.likes.length < this.props.likes.length){
             this.componentDidMount()
         }
@@ -49,7 +48,7 @@ export default class AllLikes extends Component {
     render() {
         const likes = this.props.likes
 
-        console.log(likes)
+        
         if (likes === null) {
             return (null)
         }

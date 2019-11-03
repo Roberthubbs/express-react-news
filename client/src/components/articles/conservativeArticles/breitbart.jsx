@@ -18,7 +18,7 @@ class NPRArticles extends React.Component {
             .then(res => res.text())
             .then(
                 (result) => {
-                    console.log(result)
+                
                     this.setState({
                         isLoaded: true,
                         articles: result
@@ -36,7 +36,6 @@ class NPRArticles extends React.Component {
     }
     render() {
         let { error, isLoaded, articles } = this.state;
-        // console.log("articles", articles)
         if (!isLoaded) {
             return <div>Loading...</div>
         } else {

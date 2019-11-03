@@ -8,27 +8,25 @@ router.post('/register', async (req, res) => {
     
     
     const { username, password, politicalAffiliation } = req.body
-    // console.log(req)
+
     const hash = bcrypt.hashSync(password, 10);
     if (username && password) try{
-        // console.log("we have a username", username)
         let newObj = { username: username, password: hash, politicalAffiliation: politicalAffiliation}
         let user = await User.create(
             newObj
         );
         let data = await user.authorize();
         user.save();
-        // console.log(res.data)
+        
         return res.json(data);
     } catch(err) {
-        // console.log("this is err",err)
+        
         
         return res.status(400).send(['That Username Is Already Taken']);
     }
 });
 
 router.post('/login', async(req, res) => {
-    // console.log(req.body)
     const username = req.body.user.username;
     const password = req.body.user.password;
     
@@ -43,7 +41,6 @@ router.post('/login', async(req, res) => {
 
         
         let user = await User.authenticate(username, password)
-        // console.log(res.json(user.body))
         return res.json(user)
         
     } catch (err) {
@@ -85,10 +82,8 @@ router.get('/me', (req, res) => {
 
 router.get('/user/:id', async(req, res) => {
 
-    // console.log(req)
     
     let id = req.params.id;
-    // let articles = [];
     if (!id){
         return res.status(400).send("Log in to view user information")
     }
@@ -98,15 +93,12 @@ router.get('/user/:id', async(req, res) => {
         article = await Article.findOne({where: {id: comment.post_id}, raw: true});
         comment.title = article.title;
         comment.url = article.url;
-        // comment.articleId = article.id
         return comment
         
     })).then((result) => {
         res.send({comments: result, user: user})
     });
-    // console.log(comments);
-    // // console.log(articles)
-    // res.send(comments)
+ 
 })
 
 module.exports = router;

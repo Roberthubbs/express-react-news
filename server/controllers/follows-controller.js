@@ -4,7 +4,7 @@ const { User, Follow } = require("../models");
 
 
 router.post("/user/:userId/follows", async(req, res) => {
-    console.log(req.body)
+ 
     const { currentUser, userToFollow } = req.body.follow;
     const { userId } = req.params
     if (!currentUser){
@@ -12,9 +12,9 @@ router.post("/user/:userId/follows", async(req, res) => {
     }
     try{
         let findUser = await User.findOne({where: {username: userToFollow}, raw: true});
-        console.log(findUser)
+ 
         let follow = await Follow.create({follower_id: currentUser, following_id: parseInt(userId)});
-        console.log(follow)
+     
         res.send(follow);
     } catch(err){
         res.status(400).send(["Something went wrong on our end"])

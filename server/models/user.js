@@ -31,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
    let user = await User.findOne({where: {username: name}})
     
    if (bcrypt.compareSync(password, user.password)){
-      // console.log(password)
       return user.authorize();
     };
     throw new Error(['invalid password or username']);
@@ -42,13 +41,9 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.authorize = async function () {
     const { AuthToken } = sequelize.models;
     const user = this;
-    // console.log("userIsThis", user)
     const authToken = await AuthToken.generate(this.id);
-    // console.log("authToken is This", authToken)
     const id = this.id
     await user.addAuthToken(authToken);
-    // console.log("with auth token", user
-    // console.log("from authorize", user, authToken, id)
     return { user, authToken };
   }
 

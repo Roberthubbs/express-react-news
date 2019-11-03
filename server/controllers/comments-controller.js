@@ -30,8 +30,7 @@ router.get("/show/:articleId/comments", async(req, res) => {
     })).then((result) => {
         res.send(result)
     })
-    // console.log(comments)
-    // return res.send(comments)
+
 })
 
 module.exports = router;

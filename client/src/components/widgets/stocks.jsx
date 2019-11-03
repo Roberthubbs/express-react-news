@@ -15,7 +15,6 @@ export default class Stocks extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result)
                     this.setState({
                         isLoaded: true,
                         stock: JSON.stringify(result["Time Series (Daily)"]["2019-10-11"])
@@ -41,7 +40,6 @@ export default class Stocks extends Component {
         const stock = this.state.stock;
         let splitOne = stock.split(',');
         let splitTwo = splitOne.map((val) => {
-            // console.log(val.toString().split(":"))
            return val.toString().split(":")
         });
         console.log(splitTwo[0][1])

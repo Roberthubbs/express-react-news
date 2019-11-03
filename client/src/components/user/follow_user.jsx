@@ -41,7 +41,7 @@ export default class FollowUser extends Component {
 
     handleClick(e){
         e.preventDefault();
-        // debugger;
+    
        
         this.props.createNewFollow(this.state);
         this.setState({updated: true});

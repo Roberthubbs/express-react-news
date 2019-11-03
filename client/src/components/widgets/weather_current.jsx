@@ -28,7 +28,6 @@ export default class WeatherCurrent extends Component {
             .then(res => res.text())
             .then(
                 (result) => {
-                    // console.log(result)
                     this.setState({
                         isLoaded: true,
                         weather: result
@@ -49,7 +48,6 @@ export default class WeatherCurrent extends Component {
             .then(res => res.text())
             .then(
                 (result) => {
-                    // console.log(result)
                     this.setState({
                         isLoaded: true,
                         weather: result
@@ -107,7 +105,6 @@ export default class WeatherCurrent extends Component {
             weatherLocation: "20001",
             locationText: "Washington DC"
         })
-        console.log(this.state.weatherLocation)
     }
     chooseNY(event){
         event.preventDefault();

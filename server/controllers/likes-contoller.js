@@ -7,7 +7,7 @@ const { Like } = require('../models');
 
 router.post("/show/:articleId/likes/new", async(req,res) => {
     
-    // console.log(req)
+    
     
     const { articleId, userId } = req.body.like
     if (!userId){

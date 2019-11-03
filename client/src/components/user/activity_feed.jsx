@@ -26,7 +26,6 @@ export default class ActivityFeed extends Component {
         const comments = [];
         this.props.follows.map((follow)=> {
             follow.map((comment) => {
-                console.log(comment)
                 comments.push(comment)
             })
         })

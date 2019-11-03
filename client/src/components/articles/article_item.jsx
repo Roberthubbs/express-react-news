@@ -17,7 +17,7 @@ class Article extends React.Component {
     render() {
        
         const {title, urlToImage, url, author, description, content, id} = this.props.article
-        // console.log(id)
+     
             return (
                 <div>
                     <div className="list-box">
