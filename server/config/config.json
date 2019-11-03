@@ -18,7 +18,7 @@
    
   },
   "production": {
-    "username": "root",
+    "username": "roberthubert",
     "password": null,
     "database": "news_production",
     "host": "127.0.0.1",
