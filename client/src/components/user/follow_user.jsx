@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { faGripLinesVertical } from '@fortawesome/free-solid-svg-icons';
+
 const styleOne = {
     backgroundColor: 'blue',
     width: "10%",

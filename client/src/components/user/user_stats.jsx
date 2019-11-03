@@ -3,9 +3,9 @@ import { faDemocrat, faRepublican } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FollowUser  from './follow_user_container';
 export default class UserStates extends Component {
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
     render() {
         const { username, politicalAffiliation, commentTotal } = this.props
         return (

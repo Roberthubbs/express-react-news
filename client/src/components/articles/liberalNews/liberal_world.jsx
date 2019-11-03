@@ -23,7 +23,7 @@ class LiberalArticlesWorld extends React.Component {
         }
     }
     render() {
-        let { error, isLoaded } = this.state;
+        let { isLoaded } = this.state;
 
         if (!isLoaded) {
             return <div>Loading...</div>

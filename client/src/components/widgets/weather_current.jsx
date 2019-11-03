@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import WeatherForecast from './weather_forecast';
 
-let request = new XMLHttpRequest()
+
+
 export default class WeatherCurrent extends Component {
     constructor(props){
         super(props)
@@ -139,7 +139,7 @@ export default class WeatherCurrent extends Component {
             )
         }
         let weather  = this.state.weather
-        let component;
+        
         weather = JSON.parse(weather)
         
        
@@ -149,7 +149,7 @@ export default class WeatherCurrent extends Component {
                     <div className="weather-widget">
 
                         <p>Showing weather in: {this.state.locationText} </p>
-                        <img src={weather["wx_icon"]} />
+                        <img src={weather["wx_icon"]} alt=""/>
                         <p>{weather["wx_desc"]}</p>
                         <p>Temperature: {weather["temp_f"]}</p>
                         <p>Feels Like: {weather["feelslike_f"]}</p>

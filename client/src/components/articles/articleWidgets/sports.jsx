@@ -1,5 +1,5 @@
 import React from 'react'
-import Article from '../article_item';
+// import Article from '../article_item';
 import ClipLoader from 'react-spinners/ClipLoader';
 class ArticlesSports extends React.Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class ArticlesSports extends React.Component {
         }
     }
     render() {
-        let { error, isLoaded } = this.state;
+        let { isLoaded } = this.state;
 
         if (!isLoaded) {
             return <div>  <div className="sports-article-list">

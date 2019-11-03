@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const newFollow = async (follow) => {
-    const { userId, userToFollow } = follow
+    const { userId } = follow
     
     return await axios({
         url: `/user/${userId}/follows`,
@@ -14,7 +14,7 @@ export const newFollow = async (follow) => {
     })
 }
 export const destroyFollow = async (follow) => {
-    const { userId, userToFollow } = follow
+    const { userId } = follow
     return await axios({
         url: `/${userId}/follows`,
         method: "DELETE",

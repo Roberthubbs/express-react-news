@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
                 <div className="background-image-signup">
                     <div className="login-form-container">
                         <form onSubmit={this.handleSubmit} className="login-box">
-                            <h2 className="title-login"></h2>
+                            {/* <h2 className="title-login"></h2> */}
                             <br />
 
 

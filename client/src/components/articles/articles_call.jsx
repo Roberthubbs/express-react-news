@@ -1,7 +1,7 @@
 import React from 'react'
 import Article from './article_item';
 import WeatherCurrent from '../widgets/weather_current';
-import Stocks from '../widgets/stocks'
+// import Stocks from '../widgets/stocks'
 import { LinksMenu } from './links/links';
 import HappyArticles from './articleWidgets/sports_container';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -27,7 +27,7 @@ class Articles extends React.Component {
        
     }
     render() {
-        let { error, isLoaded } = this.state;
+        let { isLoaded } = this.state;
       
          if (!isLoaded){
              return (

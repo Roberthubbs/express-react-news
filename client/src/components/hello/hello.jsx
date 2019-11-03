@@ -33,7 +33,7 @@ class Hello extends React.Component{
    
 
     render(){
-        const { currentUser, logout, location } = this.props
+        const { currentUser, logout } = this.props
         if (currentUser){
             return(
                 <nav className="greet-user">

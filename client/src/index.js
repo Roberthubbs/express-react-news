@@ -19,7 +19,7 @@ if (localStorage.getItem('currentUser')){
         },
         session: {id: id}
     };
-    console.log(preloadedState)
+    
     store = configureStore(preloadedState);
     
     

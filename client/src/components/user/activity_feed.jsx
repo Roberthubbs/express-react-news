@@ -22,10 +22,10 @@ export default class ActivityFeed extends Component {
             <div>Loading follows</div>
         )
       
-        const {follows} = this.state.follows;
+        // const {follows} = this.state.follows;
         const comments = [];
-        this.props.follows.map((follow)=> {
-            follow.map((comment) => {
+        this.props.follows.forEach((follow)=> {
+            follow.forEach((comment) => {
                 comments.push(comment)
             })
         })

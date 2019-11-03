@@ -8,19 +8,19 @@ import './css/comment.css';
 import './css/reset.css';
 import './css/article_widgets.css';
 import './css/feed.css';
-import { connect } from 'react-redux';
-import Sidebar from "react-sidebar";
+// import { connect } from 'react-redux';
+// import Sidebar from "react-sidebar";
 import { LinksMenu } from './components/articles/links/links.jsx';
 import RegisterContainer from './components/sign-up-container';
 import SportsArticles from './components/articles/sports_api';
 import LoginContainer from './components/login-container';
-import img from './images/newPaper.png';
+// import img from './images/newPaper.png';
 import { AuthRoute } from './util/route_util';
-import BlankForTesting from './components/blank_for_testing';
+// import BlankForTesting from './components/blank_for_testing';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Articles from './components/articles/articles_all_container';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import HelloContainer from './components/hello/hello_container';
 import WeatherCurrent from './components/widgets/weather_current';
 // import NPRArticles from './components/articles/liberalArticles/npr';
@@ -36,9 +36,9 @@ import UserPage from './components/user_info_container';
 import ArticleShow from './components/articles/article_show_container';
 import Stocks from './components/widgets/stocks';
 import CategoryArticles from './components/articles/categories/category_container';
-import CategoryNav from './components/articles/categories/category_nav';
+// import CategoryNav from './components/articles/categories/category_nav';
 import ActivityFeed from './components/user/activity_container';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+// import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 // const mapStateToProps = (state) => {
 //   if (state){
 //   return {
@@ -52,6 +52,8 @@ const linkStyle = {
   fontSize: "16px",
   paddingRight: "10px"
 }
+console.log("%crobertfhubert@gmail.com, 912-358-7586, https://roberthubbs.github.io/Portfolio", "color:blue; font-size:x-large")
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -70,6 +72,7 @@ class App extends React.Component {
       this.setState({showMenu: false})
     }
   }
+  
   render(){
     return(
     <div>
@@ -134,7 +137,7 @@ class App extends React.Component {
         <Route path="/conservative/world" component={ConservativeArticlesWorld} />
         <Route path="/stocks" component={Stocks} />
       </Switch>
-
+        
     </div>
     )
   }
