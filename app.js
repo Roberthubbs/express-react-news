@@ -53,7 +53,7 @@ app.use(viewsController);
 app.use(commentsController);
 app.use(likesController);
 app.use(followsController);
-
+app.set('views', path.join(__dirname, client))
 // import Cookies from 'universal-cookie';
 
  
