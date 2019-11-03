@@ -22,3 +22,8 @@ export const newFollow = follow => dispatch => (
         dispatch(receiveNewFollow(follow))
     })
 );
+export const seeActivityFollows = user => dispatch => (
+    FollowUtil.seeActivity(user).then((follows) => {
+        dispatch(receiveAllFollows(follows))
+    })
+);

@@ -30,9 +30,18 @@ export const seeFollows = async (userId) => {
     return await axios({
         url: `/user/${userId}/follows`,
         method: "GET",
-        data: {
+        // data: {
 
-            follows: []
-        }
+        //     follows
+        // }
+    })
+}
+
+export const seeActivity = async(currentUser) => {
+    
+    return await axios({
+        url: `/followings/activity/${currentUser}`,
+        method: "GET",
+        
     })
 }

@@ -14,6 +14,7 @@ class UserModal extends Component {
         return (
             <div className="user-modal">
                 <p className="outer-p"><Link to={`/user/${this.props.userId}`} className="activity-button">Your Activity</Link></p>
+                <p className="outer-p"><Link to={`/feed`} className="activity-button">Feed</Link></p>
                 {/* <Link>Your Feed</Link> */}
                 <button onClick={this.handleSubmit} className="logout-button">Logout</button>
             </div>

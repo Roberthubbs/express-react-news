@@ -6,10 +6,10 @@ const followReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_NEW_FOLLOW:
             
-            return merge({}, state, action.follow.data);
+            return merge(state, action.follow.data);
         case RECEIVE_ALL_FOLLOWS:
-            debugger;
-            return merge({}, state, action.follows.data);
+        
+            return merge({}, action.follows.data);
         default:
             return state
     }

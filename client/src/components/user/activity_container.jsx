@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { newFollow, fetchFollows } from '../../actions/follow_actions';
-import FollowUser from './follow_user';
+import { seeActivityFollows } from '../../actions/follow_actions';
+import ActivityFeed from './activity_feed';
 export const mstp = (state, ownProps) => {
 
     return {
@@ -13,9 +13,8 @@ export const mstp = (state, ownProps) => {
 
 export const mdtp = (dispatch) => {
     return {
-        createNewFollow: (follow) => dispatch(newFollow(follow)),
-        fetchFollows: (userId) => dispatch(fetchFollows(userId))
+        seeActivityFollows: (currentUser) => dispatch((seeActivityFollows(currentUser)))
     }
 }
 
-export default connect(mstp, mdtp)(FollowUser)
+export default connect(mstp, mdtp)(ActivityFeed)

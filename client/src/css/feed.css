@@ -1,0 +1,28 @@
+.feed{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.feed-title{
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.feed-box{
+    padding: 8px;
+    width: 50%;
+    background-color: rgb(220, 200, 200);
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+.comment-content{
+    margin-top: 5px;
+    border-top: 1px solid black;
+    padding: 8px;
+}
+

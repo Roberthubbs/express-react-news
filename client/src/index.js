@@ -21,7 +21,7 @@ if (localStorage.getItem('currentUser')){
     };
     console.log(preloadedState)
     store = configureStore(preloadedState);
-    localStorage.clear();
+    
     
 } else {
     store = configureStore()

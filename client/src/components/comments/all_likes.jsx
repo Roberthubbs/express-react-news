@@ -15,7 +15,7 @@ export default class AllLikes extends Component {
     }
     async componentDidMount() {
         this.props.fetchAllLikes(this.props.articleId).then((res) => {
-            console.log(res)
+            
         })
         this.props.likes.forEach((like) => {
             if (like.userId === this.props.userId) {

@@ -21,7 +21,7 @@ router.post("/user/:userId/follows", async(req, res) => {
     }
 })
 router.get("/user/:userId/follows", async(req, res) => {
-    debugger;
+ 
     const { userId } = req.params
     // if (!userId){
     //     res.status(400).send(["Login to follow other users"])
@@ -49,6 +49,23 @@ router.delete("/user/:userId/follows", async(req, res) => {
         
     } catch (err) {
         res.status(400).send(["Something went wrong on our end"])
+    }
+})
+
+router.get("/followings/activity/:currentUser", async(req, res) => {
+    
+    const { currentUser } = req.params;
+    let globalRes = res;
+    try {
+        let followings = await Follow.findAll({where: {follower_id: parseInt(currentUser)}, raw: true});
+        Promise.all(followings.map(async(following) => {
+            return await Follow.attachComments(following)
+        })).then((result) => {
+           
+            globalRes.send(result)
+        })
+    } catch (err){
+        res.status(400).send(err)
     }
 })
 

@@ -15,7 +15,7 @@ class AllComments extends Component {
     }
     async componentDidMount(){
         this.props.fetchAllComments(this.props.articleId).then((res) => {
-            console.log(res)
+            
         })
     }
     componentDidUpdate(prevProps){
@@ -23,7 +23,7 @@ class AllComments extends Component {
             this.setState({commentPosted: false})
             this.componentDidMount()
         }
-        console.log(prevProps)
+        
     }
     updateField(field) {
         return e => this.setState({
@@ -39,7 +39,7 @@ class AllComments extends Component {
     render() {
         const comments = this.props.comments
         
-        console.log(comments)
+       
         if (comments === null){
             return(null)
         }
@@ -65,7 +65,7 @@ class AllComments extends Component {
                         <p>{comment.content}</p>
                     </div>
                 ))}
-                {/* <p>comments here</p> */}
+                
             </div>
         )
     }

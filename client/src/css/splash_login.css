@@ -77,6 +77,7 @@
     font-size: 14px;
     width: 120px;
     border-radius: 5px;
+    right: 3%;
 }
 
 .login-errors{
@@ -99,6 +100,7 @@
     padding-bottom: 5px;
     padding-top: 5px;
         background-color: lightgray;
+        
 
 }
 .activity-button{

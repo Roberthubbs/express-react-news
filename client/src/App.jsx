@@ -7,6 +7,7 @@ import './css/stocks.css';
 import './css/comment.css';
 import './css/reset.css';
 import './css/article_widgets.css';
+import './css/feed.css';
 import { connect } from 'react-redux';
 import Sidebar from "react-sidebar";
 import { LinksMenu } from './components/articles/links/links.jsx';
@@ -36,6 +37,7 @@ import ArticleShow from './components/articles/article_show_container';
 import Stocks from './components/widgets/stocks';
 import CategoryArticles from './components/articles/categories/category_container';
 import CategoryNav from './components/articles/categories/category_nav';
+import ActivityFeed from './components/user/activity_container';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 // const mapStateToProps = (state) => {
 //   if (state){
@@ -115,6 +117,7 @@ class App extends React.Component {
         <AuthRoute exact path="/register" component={RegisterContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <Route path="/all" component={Articles} />
+        <Route path="/feed" component={ActivityFeed} />
         <Route exact path="/" component={Articles} />
         <Route path="/categories/:category" component={CategoryArticles} />
         <Route exact path="/sports" component={SportsArticles} />
