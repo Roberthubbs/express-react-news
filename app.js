@@ -36,11 +36,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use(logger('dev'));
-// app.use(function (req, res, next) {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.mode = 'no-cors'
-//     next();
-// });
+
 
 const port = process.env.PORT || 5000;
 app.use(bodyParser.json());

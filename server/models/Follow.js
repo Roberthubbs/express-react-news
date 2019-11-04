@@ -1,6 +1,5 @@
 'use strict';
-const { Comment } = require('./Comment');
-const { User } = require('./User');
+
 module.exports = (sequelize, DataTypes) => {
   const Follow = sequelize.define('Follow', {
     follower_id: DataTypes.INTEGER,
