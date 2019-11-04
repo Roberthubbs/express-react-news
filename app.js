@@ -19,7 +19,14 @@ const likesController = require('./server/controllers/likes-contoller.js');
 const followsController = require('./server/controllers/follows-controller.js');
 const https = require('https');
 const db = require('./server/models/index')
-
+if (process.env.NODE_ENV === 'production') {
+   
+    app.use(express.static(path.join(__dirname, 'client/build')))
+    
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/build/index.html'))
+    })
+}
 app.use((req, res, next) => {
     res.set({
         "Access-Control-Allow-Origin": "*",
@@ -56,19 +63,7 @@ app.use(followsController);
 // app.set('views', path.join(__dirname, 'client'))
 // import Cookies from 'universal-cookie';
 
-if (process.env.NODE_ENV === 'production') {
-// Serve any static files
-// app.use(express.static(path.join(__dirname, 'client/build')));
-// // Handle React routing, return all requests to React app
-// app.get('*', function (req, res) {
-//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// });
-    app.use(express.static(path.join(__dirname, 'client/build')))
-    // Anything that doesn't match the above, send back index.html
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname + '/client/build/index.html'))
-    })
-}
+
 
     
 
