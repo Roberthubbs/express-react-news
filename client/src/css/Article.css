@@ -59,11 +59,15 @@
 .article-show-author{
   font-size: 20px;
   font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .article-show-content{
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .article-show-image{
   width: 80%;

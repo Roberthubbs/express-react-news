@@ -4,7 +4,7 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(100, 100, 100, 0.6);
+    background-color: rgba(80, 70, 130, 0.6);
     padding: 10px;
      border-radius: 8px;
 }
@@ -22,25 +22,26 @@
     width: 30%;
     height: 30px;
     border-radius: 3px;
-    background-color: white;
+    background-color: #ffffff;
     margin-top: 10px;
     margin-bottom: 10px;
     color: blue;
     font-size: 14px;
     /* padding-right: 20px; */
     text-align: center;
-    border: 1px solid blue;
+    border: 1px solid rgb(48, 48, 203);
 }
 
 .content-container{
-    background:  rgba(100, 100, 100, 0.4);
+    background:  rgba(186,131,62, 0.4);
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     padding: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
-         border-radius: 8px;
+    border-radius: 8px;
+    
 
 }
 
@@ -60,7 +61,8 @@
     padding: 6px;
 }
 .article-comments{
-    color: white;
+    color: black;
+    padding: 8px;
 }
 .discussion-link-4{
     text-decoration: none;
