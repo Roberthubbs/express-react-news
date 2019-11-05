@@ -10,7 +10,6 @@ module.exports = (sequelize, DataTypes) => {
     Comment.belongsTo(User)
     Comment.belongsTo(Article)
   };
-
   Comment.attachUserName = async function(comment) {
     let authorId = comment.author_id;
     let user = await sequelize.models.User.findOne({where: {id: authorId}});

@@ -1,5 +1,5 @@
 .weather-widget{
-  
+    border-top: 20px solid yellow;
     border-right: 1px solid rgba(100, 100, 100, 0.6);
     padding: 20px;
     /* border-radius: 8px; */
@@ -13,9 +13,10 @@
     color: sienna;
      overflow: visible;
      z-index: 2;
+     min-height: 170px;
 }
 .weather-widget>p{
-    margin-top: 4px;
+    /* margin-top: 4px; */
 }
 .selector{
     left: 0;

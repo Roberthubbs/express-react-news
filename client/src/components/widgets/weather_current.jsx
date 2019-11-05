@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-
+const style = {
+    height: "50px",
+    width: "50px"
+}
 
 export default class WeatherCurrent extends Component {
     constructor(props){
@@ -8,13 +11,14 @@ export default class WeatherCurrent extends Component {
         this.state = {
             isLoaded: false,
             error: null,
-            weather: [],
+            weather: { temp: "", humidity: "", maxtemp: "", mintemp: "", description:"", icon: "" },
             showMenu: false,
             menuText: "Choose Location",
             weatherLocation: "94110",
             locationText: "San Francisco",
             forecastChosen: false,
-            forecastText: "Show Forecast"
+            forecastText: "Show Forecast",
+            changing: false
         }
         this.showMenu = this.showMenu.bind(this);
         this.chooseSF = this.chooseSF.bind(this);
@@ -23,14 +27,36 @@ export default class WeatherCurrent extends Component {
         this.chooseLA = this.chooseLA.bind(this);
         this.chooseCH = this.chooseCH.bind(this);
     }
+    // componentDidMount(){
+    //     fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/0242b7931e25c4197e3acfa0ee5430f7/${this.state.weatherLocation}`)
+    //         .then(res => res.json())
+    //         .then(
+    //             (result) => {
+    //                 debugger;
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     weather: result
+    //                 });
+    //             },
+                
+    //             (error) => {
+    //                 this.setState({
+    //                     isLoaded: true,
+    //                     error
+    //                 });
+    //             }
+    //         )
+    
+    // }
     componentDidMount(){
-        fetch(`https://cors-anywhere.herokuapp.com/http://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`, { headers: { "X-Requested-With": 'XMLHttpRequest'}})
-            .then(res => res.text())
+        fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${this.state.weatherLocation},us&APPID=d2ea10d4e23debad2ec28153114d297d`)
+            .then(res => res.json())
             .then(
                 (result) => {
+                    // debugger;
                     this.setState({
                         isLoaded: true,
-                        weather: result
+                        weather: { temp: result["main"]["temp"], humidity: result["main"]["temp"], maxtemp: result["main"]["temp_max"], mintemp: result["main"]["temp_min"], description: result["weather"][0]["main"], icon: result["weather"][0]["icon"] } 
                     });
                 },
                 
@@ -43,24 +69,13 @@ export default class WeatherCurrent extends Component {
             )
     
     }
-    componentDidUpdate(){
-        fetch(`http://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`)
-            .then(res => res.text())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        weather: result
-                    });
-                },
-                
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+    componentDidUpdate(prevState){
+        // fetch(`http://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`)
+        // debugger;
+        if (this.state.changing){
+            this.setState({changing: false})
+            this.componentDidMount();
+        }
     
     }
     showMenu(event) {
@@ -95,7 +110,8 @@ export default class WeatherCurrent extends Component {
         event.preventDefault();
         this.setState({
             weatherLocation: "94110",
-            locationText: "San Francisco"
+            locationText: "San Francisco",
+            changing: true
         })
 
     }
@@ -103,34 +119,40 @@ export default class WeatherCurrent extends Component {
         event.preventDefault();
         this.setState({
             weatherLocation: "20001",
-            locationText: "Washington DC"
+            locationText: "Washington DC",
+            changing: true
         })
     }
     chooseNY(event){
         event.preventDefault();
         this.setState({
             weatherLocation: "10001",
-            locationText: "New York City"
+            locationText: "New York City",
+            changing: true
         })
     }
     chooseCH(event){
         event.preventDefault();
         this.setState({
             weatherLocation: "60007",
-            locationText: "Chicago"
+            locationText: "Chicago",
+            changing: true
         })
     }
     chooseLA(event){
         event.preventDefault();
         this.setState({
             weatherLocation: "90001",
-            locationText: "Los Angeles"
+            locationText: "Los Angeles",
+            changing: true
         })
     }
     render() {
         if (this.state.error){
             return(
+                <div className="weather-widget">
                 this.state.error.message
+                </div>
                 )
             } 
         else if (!this.state.isLoaded){
@@ -139,20 +161,20 @@ export default class WeatherCurrent extends Component {
             )
         }
         let weather  = this.state.weather
+        // debugger;
+        // weather = JSON.parse(weather)
         
-        weather = JSON.parse(weather)
+        https://openweathermap.org/img/wn/`${weather.icon}`@2x.png
         
-       
-        
-            if (!this.state.forecastChosen){
+            if (!this.state.forecastChosen && this.state.isLoaded){
                 return(
                     <div className="weather-widget">
 
                         <p>Showing weather in: {this.state.locationText} </p>
-                        <img src={weather["wx_icon"]} alt=""/>
-                        <p>{weather["wx_desc"]}</p>
-                        <p>Temperature: {weather["temp_f"]}</p>
-                        <p>Feels Like: {weather["feelslike_f"]}</p>
+                        <img style={style }src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt=""/>
+                        <p>{weather.description}</p>
+                        <p>Temperature: {Math.floor((weather.temp-273) * 9/5+32 )}</p>
+                        {/* <p>Feels Like: {weather["feelslike_f"]}</p> */}
                         <div className="selector">
                             <button className="selector-button" onClick={this.showMenu}>{this.state.menuText}</button>
                             {
