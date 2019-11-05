@@ -156,3 +156,12 @@
     margin-right: auto;
     padding: 20px;
 }
+.view-comments-button{
+    width: 100%;
+    background-color:  rgba(186,131,62, 0.8);
+    border: none;
+    border-radius: 2px;
+}
+.view-comments-button:focus{
+    outline: none;
+}
