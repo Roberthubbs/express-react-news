@@ -12,8 +12,8 @@ export const receiveAllComments = comments => ({
 })
 
 export const createNewComment = comment => dispatch => (
-    CommentUtil.newComment(comment).then((comment) => {
-        dispatch(receiveComment(comment))
+    CommentUtil.newComment(comment).then((comments) => {
+        dispatch(receiveAllComments(comments))
     })
 )
 

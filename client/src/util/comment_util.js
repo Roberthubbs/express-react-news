@@ -3,7 +3,7 @@ import axios from "axios";
 export const newComment = async(comment) => {
     
     return await axios({
-        url: `/show/${comment.articleId}/new`,
+        url: `/show/${comment.articleId}/comments`,
         method: "POST",
         data: {
             // userId: comment.userId,

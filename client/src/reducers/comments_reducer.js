@@ -11,11 +11,11 @@ const commentsReducer = (state = {}, action) => {
           
             return merge({}, state, {[action.comment.data.id]: action.comment.data});
         case RECEIVE_ALL_COMMENTS:
-       
+            console.log(state)
             if(typeof action.comments === 'undefined'){
-                return merge({}, state)
+                return ({})
             }
-            return merge({}, state, action.comments.data)
+            return merge({}, action.comments.data)
         default:
             return state;
     }

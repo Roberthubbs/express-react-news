@@ -19,11 +19,13 @@ class AllComments extends Component {
         this.handleCommentClick = this.handleCommentClick.bind(this);
     }
     async componentDidMount(){
-        this.props.fetchAllComments(this.props.articleId);
+        console.log(this.props.articleId)
+        this.props.fetchAllComments(this.state.articleId);
     }
     componentDidUpdate(prevProps){
-        if (this.state.commentPosted){
-            this.setState({commentPosted: false})
+        // debugger;
+        if (this.props.comments.length > prevProps.comments.length){
+            // this.setState({commentPosted: false})
             this.componentDidMount()
         }
         
@@ -36,7 +38,8 @@ class AllComments extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.setState({commentPosted: true, description: ""})
-        this.props.createNewComment(this.state).then(this.props.history.push(`/show/${this.props.articleId}`));
+        let obj = {userId: this.state.userId, articleId: this.state.articleId, body: this.state.body}
+        this.props.createNewComment(obj).then(this.props.fetchAllComments(this.props.articleID))//.then(this.props.history.push(`/show/${this.props.articleId}`));
 
     }
     handleCommentClick(e){
@@ -65,7 +68,7 @@ class AllComments extends Component {
                             className="comment-input"
                             value={this.state.description}
                             onChange={this.updateField("body")} />
-                        <input className="comment-button" type="button" value="Post Comment" onClick={this.handleSubmit} />
+                        <input className="comment-button" type="button" value="Comment" onClick={this.handleSubmit} />
                     </form>
 
                 </div> : null}
