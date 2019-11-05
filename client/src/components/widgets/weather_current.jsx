@@ -24,7 +24,7 @@ export default class WeatherCurrent extends Component {
         this.chooseCH = this.chooseCH.bind(this);
     }
     componentDidMount(){
-        fetch(`https://cors-anywhere.herokuapp.com/http://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`)
+        fetch(`https://cors-anywhere.herokuapp.com/http://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`, { headers: { "X-Requested-With": 'XMLHttpRequest'}})
             .then(res => res.text())
             .then(
                 (result) => {
