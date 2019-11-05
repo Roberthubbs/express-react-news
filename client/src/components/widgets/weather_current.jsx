@@ -24,7 +24,7 @@ export default class WeatherCurrent extends Component {
         this.chooseCH = this.chooseCH.bind(this);
     }
     componentDidMount(){
-        fetch(`http://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`)
+        fetch(`https://api.weatherunlocked.com/api/current/us.${this.state.weatherLocation}?app_id=e77a1456&app_key=1ed2bd8e094ad579325aba7e1cbbcd0a`)
             .then(res => res.text())
             .then(
                 (result) => {
