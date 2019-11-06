@@ -7,11 +7,12 @@
 }
 .list-box{
   margin-top: 20px;
+  text-align: left;
 }
 .list-box-bold{
   margin-top: 20px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
 }
 .article-index-list {
     width: 70%;
@@ -20,10 +21,10 @@
     text-align: center;
     margin-bottom: -10px;
     margin-top: -10px;
-    border-right: 1px solid black;
+    /* border-right: 1px solid black; */
     border-bottom: 1px solid black;
     padding: 8px;
-    padding-right: 24px;
+    /* padding-right: 24px; */
 }
 
 .article-index{
@@ -37,7 +38,8 @@
 
 .index-image{
   padding-top: 30px;
-  width: 80%;
+  width: 100%;
+  height: 60%;
   height: 290px;
   border-radius: 10px;
 }
@@ -48,7 +50,13 @@
 }
 
 
-
+.article-bottom-div{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  justify-content: space-between;
+}
 .article-show{
   width: 80%;
   margin-left: auto;
@@ -80,14 +88,14 @@
   position: absolute;
   overflow: visible;
   right: 5px;
-  top: 200px;
- text-align: center;
+  top: 50%;
+ /* text-align: center; */
 }
 .liberal-side-links{
  
   display: block;
   text-decoration: none;
-  border-top: 1px solid blue;
+  border-top: 1px solid #4285F4;
  
   padding-top: 10px;
 
@@ -102,7 +110,7 @@
   display: block;
   text-decoration: none;
  
-  border-top: 1px solid red;
+  border-top: 1px solid #DB4437;
 
   list-style: none;
   margin-left: 0;
@@ -116,19 +124,50 @@
 .menu-link-l{
 
   text-decoration: none;
-  padding: 10px;
+  padding: 5px;
   color: black;
   text-align: center;
   margin-left: 0px;
   padding-left: 0px;
-  
+  /* margin-bottom: 10px; */
 
 }
 .liberal-link{
-  background-color: rgba(0,0,255,.1);
-  padding: 5px;
+  /* background-color: rgba(0,0,255,.1); */
+  /* padding: 5px; */
+  text-align: left;
 }
 .conservative-link{
-  background-color: rgba(255,0,0,.1);
-  padding: 5px;
+  /* background-color: rgba(255,0,0,.1); */
+  /* padding: 5px; */
+  text-align: left;
+}
+.category-nav{
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding: 20px;
+  border-bottom: 3px solid black;
+}
+.category-sub-div{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  
+}
+.font-icon-all{
+  margin-left: auto;
+  margin-right: auto;
+}
+.liberal-link-header{
+  color: #4285F4;
+  padding-bottom: 10px;
+}
+.conservative-link-header{
+  color: #DB4437;
+  padding-bottom: 10px;
 }

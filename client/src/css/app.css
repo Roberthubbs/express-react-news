@@ -55,8 +55,8 @@ body{
     text-align: center;
     color: black;
     padding: 15px;
-    font-size: 20px;
-    background-color: white;
+    font-size: 34px;
+    /* background-color: white; */
 }
 .user-stats{
     margin-top: 10px;
@@ -90,7 +90,7 @@ body{
 }
 .newsy-title{
     color: whitesmoke;
-    font-size: 40px;
+    font-size: 50px;
     margin: 0;
 }
 
@@ -104,8 +104,14 @@ body{
     flex-direction: row;
 }
 .middle-head{
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+
 }
+.emblem{
+    padding-left:15px;
+}
+
 
 .right-head{
     /* text-align: center; */

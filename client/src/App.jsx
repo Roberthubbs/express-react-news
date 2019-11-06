@@ -19,7 +19,7 @@ import { AuthRoute } from './util/route_util';
 // import BlankForTesting from './components/blank_for_testing';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Articles from './components/articles/articles_all_container';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import HelloContainer from './components/hello/hello_container';
 import WeatherCurrent from './components/widgets/weather_current';
@@ -36,6 +36,8 @@ import UserPage from './components/user_info_container';
 import ArticleShow from './components/articles/article_show_container';
 import Stocks from './components/widgets/stocks';
 import CategoryArticles from './components/articles/categories/category_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 // import CategoryNav from './components/articles/categories/category_nav';
 import ActivityFeed from './components/user/activity_container';
 // import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
@@ -93,6 +95,9 @@ class App extends React.Component {
       <div className="newsy-header">
         
         <div className="middle-head">
+            <div className="top-emblem-div">
+              <FontAwesomeIcon icon={faNewspaper} size={"4x"} color={"white"}/>
+            </div>
             <div className="emblem">
               <h3 className="newsy-title">Newsy</h3>
               <h5 className="newsy-subheader">Your News, Your Way</h5>
@@ -105,14 +110,20 @@ class App extends React.Component {
             </div> */}
         </div>
         
-          <div className="category-nav">
-            <Link style={linkStyle} to="/categories/politics">Politics</Link>
+          {/* <div className="category-nav"> */}
+            {/* <Link style={linkStyle} to="/categories/politics">Politics</Link>
             <Link style={linkStyle} to="/categories/technology">Technology</Link>
             <Link style={linkStyle} to="/categories/business">Business</Link>
             <Link style={linkStyle} to="/categories/entertainment">Entertainment</Link>
             <Link style={linkStyle} to="/categories/health">Health</Link>
-            <Link style={linkStyle} to="/categories/science">Science</Link>
-          </div>
+            <Link style={linkStyle} to="/categories/science">Science</Link> */}
+            {/* <div className="category-sub-div"><FontAwesomeIcon icon={faLandmark} /><Link style={linkStyle} to="/categories/politics">Politics</Link></div>
+            <div className="category-sub-div"><FontAwesomeIcon icon={faMobileAlt} /><Link style={linkStyle} to="/categories/technology">Technology</Link></div>
+            <div className="category-sub-div"><FontAwesomeIcon icon={faBriefcase} /><Link style={linkStyle} to="/categories/business">Business</Link></div>
+            <div className="category-sub-div"><FontAwesomeIcon icon={faTheaterMasks} /><Link style={linkStyle} to="/categories/entertainment">Entertainment</Link></div>
+            <div className="category-sub-div"><FontAwesomeIcon icon={faCapsules} /><Link style={linkStyle} to="/categories/health">Health</Link></div>
+            <div className="category-sub-div"><FontAwesomeIcon icon={faMicroscope} /><Link style={linkStyle} to="/categories/science">Science</Link></div> */}
+          {/* </div> */}
 
         {/* <Link to="/sports">Sports</Link> */}
       </div>

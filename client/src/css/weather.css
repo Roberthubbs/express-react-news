@@ -1,22 +1,29 @@
 .weather-widget{
-    border-top: 20px solid yellow;
-    border-right: 1px solid rgba(100, 100, 100, 0.6);
+    /* border-top: 20px solid yellow; */
+    /* border-right: 1px solid rgba(100, 100, 100, 0.6); */
     padding: 20px;
     /* border-radius: 8px; */
     text-align: center;
     color: black;
     width: 15%;
     position: absolute;
-    
+    top: 50%;
     padding-bottom: 0;
-   background-color: rgba(220, 220, 220, .8);
-    color: sienna;
+   /* background-color: rgba(220, 220, 220, .8); */
+    color: black;
      overflow: visible;
      z-index: 2;
      min-height: 170px;
 }
 .weather-widget>p{
     /* margin-top: 4px; */
+}
+.weather-loc{
+    background-color: rgb(50,50, 50);
+    padding: 10px;
+    color: white;
+    border-radius: 3px;
+    margin-top: 5px;
 }
 .selector{
     left: 0;

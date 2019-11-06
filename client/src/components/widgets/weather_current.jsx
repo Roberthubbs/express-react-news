@@ -170,7 +170,7 @@ export default class WeatherCurrent extends Component {
                 return(
                     <div className="weather-widget">
 
-                        <p>Showing weather in: {this.state.locationText} </p>
+                        <p>Showing weather in: <p className="weather-loc">{this.state.locationText}</p> </p>
                         <img style={style }src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt=""/>
                         <p>{weather.description}</p>
                         <p>Temperature: {Math.floor((weather.temp-273) * 9/5+32 )}</p>
