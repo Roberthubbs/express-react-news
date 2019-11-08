@@ -1,4 +1,5 @@
 // const cookies = new Cookies(req.headers.cookie);
+// import { findAndClearArticles } from './server/controllers/articles-controller';
 require('dotenv').config()
 const cors = require('cors')
 
@@ -18,7 +19,7 @@ const commentsController = require('./server/controllers/comments-controller');
 const likesController = require('./server/controllers/likes-contoller.js');
 const followsController = require('./server/controllers/follows-controller.js');
 const https = require('https');
-const db = require('./server/models/index')
+const db = require('./server/models/index');
 if (process.env.NODE_ENV === 'production') {
    
     app.use(express.static(path.join(__dirname, 'client/build')))
@@ -59,8 +60,24 @@ app.use(followsController);
 // app.set('views', path.join(__dirname, 'client'))
 // import Cookies from 'universal-cookie';
 
-
-
+db.sequelize.query(`SELECT id FROM "Articles" WHERE "Articles".id not in (SELECT post_id FROM "Comments");`, {raw: true}).then((res) => {
+    
+    let ohMyGodThisWillBeSoSlow = [];
+    res[0].forEach((result) => {
+        ohMyGodThisWillBeSoSlow.push(result.id)
+    })
+    db.sequelize.models.Article.destroy({
+        where: {
+            id: ohMyGodThisWillBeSoSlow,
+            createdAt: new Date((new Date()).getTime() - (86400000 * 5))
+        }
+    }).then((deleted) => {
+        
+        console.log(deleted)
+    })
+})
+// console.log(db.sequelize.models.Article)
+// findAndClearArticles();
     
 
 

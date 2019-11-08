@@ -11,25 +11,25 @@ const cors = require('cors')
 
 
 let run = false;
-findAndClearArticles = async () => {
+// export const findAndClearArticles = async () => {
   
-    let arts = await Article.findAll();
-    let comments = await Comment.findAll();
-    let likes = await Comment.findAll();
-    let commentsIdArr = [];
-    comments.forEach((comment) => {
-        commentsIdArr.push(comment.post_id)
-    });
-    likes.forEach((like) => {
-        commentsIdArr.push(like.postId)
-    });
-    return await Article.delete({ where: !commentsIdArr.includes(id) }).then((deleted) => {
-        console.log(deleted)
-    })
-}
+//     let arts = await Article.findAll();
+//     let comments = await Comment.findAll();
+//     let likes = await Comment.findAll();
+//     let commentsIdArr = [];
+//     comments.forEach((comment) => {
+//         commentsIdArr.push(comment.post_id)
+//     });
+//     likes.forEach((like) => {
+//         commentsIdArr.push(like.postId)
+//     });
+//     return await Article.delete({ where: !commentsIdArr.includes(id) }).then((deleted) => {
+//         console.log(deleted)
+//     })
+// }
 
 router.post('/all', async(req, res) => {
-    findAndClearArticles();
+    
     let globalRes = res
     // console.log("hitting", req);
     let articles;
