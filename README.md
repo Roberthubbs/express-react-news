@@ -70,3 +70,23 @@ router.post("/categories/:category", async(req, res) => {
     })
 })
 ```
+## Updating Categories on the Frontend 
+```
+   async componentDidMount() {
+
+        
+        await this.props.receiveAllArticles(this.props.category)
+
+        if (this.props.articles) {
+
+            this.setState({ articles: this.props.articles, isLoaded: true })
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        if (prevProps.category !== this.props.category){
+            this.setState({isLoaded: false})
+            this.componentDidMount()
+        }
+    }
+```
