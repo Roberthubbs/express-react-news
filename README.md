@@ -72,7 +72,7 @@ router.post("/categories/:category", async(req, res) => {
 ```
 ## Updating Categories on the Frontend 
 ```
-   async componentDidMount() {
+   componentDidMount() {
 
         
         await this.props.receiveAllArticles(this.props.category)
