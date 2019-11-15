@@ -75,7 +75,7 @@ router.post("/categories/:category", async(req, res) => {
    componentDidMount() {
 
         
-        await this.props.receiveAllArticles(this.props.category)
+        this.props.receiveAllArticles(this.props.category)
 
         if (this.props.articles) {
 
