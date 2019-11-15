@@ -36,3 +36,37 @@
 * dotenv
 * node-fetch
 * Express
+
+
+# Examples of code used
+## Using Params to filter by topic
+``` 
+router.post("/categories/:category", async(req, res) => {
+    
+    let globalRes = res
+    let { category } = req.params;
+    let articles;
+    newsapi.v2.topHeadlines({
+        category: category,
+        country: 'us'
+    }).then((res) => {
+        
+        return Promise.all(res.articles.map(async (article) => {
+            if (!await Article.findOne({ where: { title: article.title } })) {
+                article = await Article.create(article)
+                return article
+            } else {
+                article = await Article.findOne({ where: { title: article.title } })
+                return article
+            }
+        }))
+
+    }).then((res) => {
+
+        globalRes.send(res)
+
+    }).catch((err) => {
+        res.send(err)
+    })
+})
+```
