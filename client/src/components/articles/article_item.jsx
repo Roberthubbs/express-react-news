@@ -19,7 +19,7 @@ class Article extends React.Component {
         const {title, urlToImage, url, author, description, content, id} = this.props.article
      
             return (
-                <div>
+                <div className='parent-article'>
                     <div className="list-box">
                         <div className="article-index-list">
                             <div>

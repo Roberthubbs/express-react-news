@@ -8,11 +8,18 @@
 .list-box{
   margin-top: 20px;
   text-align: left;
+  
 }
 .list-box-bold{
   margin-top: 20px;
   font-size: 20px;
   font-weight: 400;
+}
+.parent-article{
+  margin-bottom:5%;
+}
+.article-bottom-div{
+  margin-bottom:5%;
 }
 .article-index-list {
     width: 70%;
@@ -26,7 +33,9 @@
     padding: 8px;
     /* padding-right: 24px; */
 }
-
+.index-image {
+  object-fit: scale-down;
+}
 .article-index{
   height: 400px;
   width: 80%;
@@ -47,6 +56,7 @@
 .article-image{
   max-width: 80%;
   max-height: 400px;
+  
 }
 
 
